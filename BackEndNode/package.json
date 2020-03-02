@@ -1,0 +1,19 @@
+{
+  "name": "backendnode",
+  "version": "1.0.0",
+  "description": "This is for Flat booking system for mayar builders.",
+  "main": "app.js",
+  "scripts": {
+    "dev": "npx nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Flat Booking system"
+  },
+  "author": "The Friends",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  }
+}
