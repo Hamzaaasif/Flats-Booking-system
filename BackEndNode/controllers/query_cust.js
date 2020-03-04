@@ -13,7 +13,6 @@ var con = mysql.createConnection({
 })
 
 exports.getquerycust = (req , res )=>{
-  console.log("connection...",con);
   const que = "select * from query_cust"
   con.query(que , (err , result)=>{
     if(err)throw err;
