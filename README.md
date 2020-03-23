@@ -4,7 +4,7 @@ System is design for Mayar Builders, so they can easily maintain their record fo
 
 ## Getting Started
 
-Clonr this repo by the link: https://github.com/Hamzaaasif/Flats-Booking-system.git
+Clone this repo by the link: https://github.com/Hamzaaasif/Flats-Booking-system.git
 
 ### Prerequisites
 
