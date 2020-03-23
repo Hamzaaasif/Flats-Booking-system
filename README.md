@@ -65,4 +65,3 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 * **Hamza Asif** -  [hamzaaasif](https://github.com/hamzaaasif)
 * **Osama Ahmed** - [OsamaAhmed1999](https://github.com/OsamaAhmed1999)
 * **Mustafa Rasheed** -  [mustafarashee](https://github.com/mustafarashee)
-

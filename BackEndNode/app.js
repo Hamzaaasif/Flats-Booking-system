@@ -14,8 +14,8 @@ const kinInfoRoutes = require('./routes/kin_info')
 const appRoutes = require('./routes/appliant')
 
 //middlewares
-app.use(bodyParser.json())
-app.use(expressValidator());
+app.use(bodyparer.json())
+app.use(expressvalidator());
 app.use(cookieParser());
 app.use(morgan("dev"));
 
