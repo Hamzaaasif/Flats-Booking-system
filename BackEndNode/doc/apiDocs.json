@@ -1,0 +1,25 @@
+{
+    "/": "api docs",
+    
+    "/signup": "Signup",
+    "/signin": "Signin",
+    "/signout": "Signout",
+
+    "/postinsta": "post installment details",
+    "/getinsta/:FlatNum": "get installment details",
+    "/deleteinsta/:FlatNum": "delete installment details",
+    "/allinsta": "get all installment details",
+
+    "/postfd": "post flat details",
+    "/getfd/:flat_num": "get flat details",
+    "/deletefd/:flat_num": "delete flat details",
+    "/allfd": "get all flat details",
+
+    "/postappli": "post applicant details",
+    "/getappli/:flat_num": "get applicant details",
+    "/deleteappli/:flat_num": "delete applicant details",
+
+    "/postkd": "post kin details",
+    "/getkd/:id": "get flat details",
+    "/deletekd/:id": "delete flat details"
+}
