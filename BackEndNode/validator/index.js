@@ -94,7 +94,7 @@ exports.kinValidator = (req, res, next) => {
 exports.applicantValidator = (req, res, next) => {
 
     req.check("appli_name", "Applicant name is required").notEmpty();
-    req.check("appli_appli_father_name", "Applicant father name is required").notEmpty();
+    req.check("appli_father_name", "Applicant father name is required").notEmpty();
     req.check("appli_DOB", "Applicant date of birth is required").notEmpty();
     req.check("appli_CNIC", "Applicant CNIC is required").notEmpty();
     req.check("appli_CNIC")

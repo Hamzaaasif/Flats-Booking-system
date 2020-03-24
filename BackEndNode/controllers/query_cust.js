@@ -1,7 +1,3 @@
-// const dbConnection  = require("../dbconnection")
-// //var mysql = require("mysql")
-// var con;
-// con = dbConnectionManager.dbConnection();
 
 var mysql = require('mysql')
 

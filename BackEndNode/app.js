@@ -15,9 +15,9 @@ const appRoutes = require('./routes/appliant')
 
 //middlewares
 app.use(bodyparer.json())
-app.use(expressvalidator());
 app.use(cookieParser());
 app.use(morgan("dev"));
+app.use(expressvalidator());
 
 //routes
 app.use('/', authRoutes)
