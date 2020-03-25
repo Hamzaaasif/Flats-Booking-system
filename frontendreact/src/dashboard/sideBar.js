@@ -1,44 +1,44 @@
 import { MDBListGroup, MDBListGroupItem, MDBIcon } from 'mdbreact';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from './mdb-react.png'
+//import logo from './mdb-react.png'
 
 
 const Sidebar = () => {
     return(
         <div className="sidebar-fixed position-fixed">
-        <a href="#!" className="logo-wrapper waves-effect">
-            <img alt="MDB React Logo" className="img-fluid" src={logo}/>
-        </a>
+        
+            <h3 className = "HeadingStyle"  >MAYAR GROUP</h3>
+            
         <MDBListGroup className="list-group-flush">
             <NavLink exact={true} to="/" activeClassName="activeClass">
                 <MDBListGroupItem>
                     <MDBIcon icon="chart-pie" className="mr-3"/>
-                    Dashboard
+                    Home
                 </MDBListGroupItem>
             </NavLink>
-            <NavLink to="/profile" activeClassName="activeClass">
+            <NavLink to="/allfd" activeClassName="activeClass">
                 <MDBListGroupItem>
-                    <MDBIcon icon="user" className="mr-3"/>
-                    Profile
+                    <MDBIcon icon="building" className="mr-3"/>
+                    Flats 
                 </MDBListGroupItem>
             </NavLink>
             <NavLink to="/tables" activeClassName="activeClass">
                 <MDBListGroupItem>
-                    <MDBIcon icon="table" className="mr-3"/>
-                    Tables
+                    <MDBIcon icon="user" className="mr-3"/>
+                    Applicant
                 </MDBListGroupItem>
             </NavLink>
             <NavLink to="/maps" activeClassName="activeClass">
                 <MDBListGroupItem>
-                    <MDBIcon icon="map" className="mr-3"/>
-                    Maps
+                    <MDBIcon icon="dollar-sign" className="mr-3"/>
+                    Installments
                 </MDBListGroupItem>
             </NavLink>
             <NavLink to="/404" activeClassName="activeClass">
                 <MDBListGroupItem>
-                    <MDBIcon icon="exclamation" className="mr-3"/>
-                    404
+                    <MDBIcon icon="user" className="mr-3"/>
+                    Query Customers
                 </MDBListGroupItem>
                 </NavLink>
         </MDBListGroup>
