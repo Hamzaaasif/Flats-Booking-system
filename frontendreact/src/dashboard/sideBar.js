@@ -1,10 +1,14 @@
 import { MDBListGroup, MDBListGroupItem, MDBIcon } from 'mdbreact';
-import React from 'react';
+import React,{Component} from 'react';
 import { NavLink } from 'react-router-dom';
 //import logo from './mdb-react.png'
 
 
-const Sidebar = () => {
+class Sidebar extends Component {
+
+    render()
+    {
+
     return(
         <div className="sidebar-fixed position-fixed">
         
@@ -41,10 +45,12 @@ const Sidebar = () => {
                     Query Customers
                 </MDBListGroupItem>
                 </NavLink>
+
         </MDBListGroup>
 
     </div>
   );
+    }
 }
 
 export default Sidebar;
