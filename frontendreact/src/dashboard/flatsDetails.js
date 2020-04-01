@@ -1,6 +1,5 @@
 import React,{Component} from 'react'
 import { MDBCard, MDBCardBody, MDBCardHeader, MDBBtn, MDBTable ,MDBDataTable } from 'mdbreact';
-import ReactToPrint from "react-to-print";
 
 class flatsDetails extends Component
 {
@@ -204,8 +203,11 @@ class flatsDetails extends Component
         <MDBTable btn fixed align="right">
           {/* <MDBTableHead columns={this.data_panel.columns} />
           <MDBTableBody rows={this.data_panel.rows} /> */}
-          <MDBDataTable   bordered
-      small striped data={this.data_panel}/>
+          <MDBDataTable   
+          bordered
+          small 
+          striped 
+          data={this.data_panel}/>
         </MDBTable>
       
       </MDBCardBody>

@@ -27,7 +27,7 @@ class Sidebar extends Component {
                     Flats 
                 </MDBListGroupItem>
             </NavLink>
-            <NavLink to="/tables" activeClassName="activeClass">
+            <NavLink to="/getappli" activeClassName="activeClass">
                 <MDBListGroupItem>
                     <MDBIcon icon="user" className="mr-3"/>
                     Applicant

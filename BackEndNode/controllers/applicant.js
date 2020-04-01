@@ -83,3 +83,18 @@ exports.deleteApplicantDetails = (req , res)=>
         }
     })
 };
+
+
+//to get all applicants details
+
+exports.getAllapplicant = (req , res)=>
+{
+    let sql = "SELECT * FROM applicant_info "
+    con.query(sql , (err, result)=>{
+        if(err)throw err
+        else{
+            res.send(result)
+        }
+    })
+};
+

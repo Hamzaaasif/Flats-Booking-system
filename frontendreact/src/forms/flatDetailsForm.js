@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn,MDBCard, MDBCardBody, MDBCardHeader } from 'mdbreact';
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn ,MDBCard, MDBCardHeader } from 'mdbreact';
 
 
 class Flats_form extends Component {
@@ -91,6 +91,7 @@ class Flats_form extends Component {
           <MDBBtn href="/allfd">Save</MDBBtn>
         </div>
       </form>
+      
     </MDBCol>
   </MDBRow>
 </MDBContainer>

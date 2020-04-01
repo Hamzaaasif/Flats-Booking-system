@@ -5,7 +5,8 @@ const{
     postApplicantDetails,
     getApplicantDetails,
     deleteApplicantDetails,
-    appByCNIC
+    appByCNIC,
+    getAllapplicant
 } = require("../controllers/applicant")
 
 const {
@@ -14,8 +15,11 @@ const {
 
 
 router.post('/postappli', applicantValidator, postApplicantDetails);
-router.get('/getappli/:cnic', getApplicantDetails);
+router.get('/getappli/:cnic', getApplicantDetails); //searcching by cnic
 router.delete('/deleteappli/:cnic', deleteApplicantDetails);
+
+//To get all applicants 
+router.get('/getappli', getAllapplicant); //
 
 router.param("cnic", appByCNIC)
 
