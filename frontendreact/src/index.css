@@ -288,10 +288,28 @@ main {
 
 }
 
-.SetPositionLeftForflat{
+.SetPositionLeftFordropDown{
 
   margin-left: 20px;
   margin-right: -20px;
+}
+
+/* for select flat disable inputs */
+.SetPositionRightForFlats{
+  
+  margin-left: 500px;
+  margin-right: -480px;
+  margin-top: -100px;
+  margin-bottom: 60px;
+}
+
+
+.SetPositionLeftForFlats{
+
+  margin-left: 20px;
+  margin-right: 70px;
+  margin-top: -230px;
+  margin-bottom: 40px;
 }
 
 
@@ -299,7 +317,7 @@ main {
 /* Dropdown Button */
 .dropbtn {
   background-color: #56A5EC ;
-  color: white;
+  color: black;
   width: 160px;
   height: 50px;
   font-size: 16px;
@@ -338,3 +356,8 @@ main {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #56A5EC;}
+
+.select{
+  text-align: center;
+  text-align-last: center;
+}

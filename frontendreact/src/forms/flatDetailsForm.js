@@ -54,7 +54,7 @@ class Flats_form extends Component {
                 
                 <div className="form-check styleFlatFormcheckboxes">
                   <input type="checkbox" className="form-check-input" id="bookedFlat"/>
-                  <label className="form-check-label" for="bookedFlat">Booked Flat</label>
+                  <label className="form-check-label" for="bookedFlat">Park Facing</label>
                 </div>
 
               </div>
@@ -88,6 +88,8 @@ class Flats_form extends Component {
         </div>
         <br/><br/>
         <div className="text-center ml-5">
+          
+          <MDBBtn href="/allfd">Back</MDBBtn>
           <MDBBtn href="/allfd">Save</MDBBtn>
         </div>
       </form>

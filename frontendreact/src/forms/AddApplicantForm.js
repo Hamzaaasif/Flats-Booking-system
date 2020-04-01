@@ -7,8 +7,16 @@ class AddApplicant extends Component{
   state = {
     startDate: new Date(),
     flatType:"Flat Type",
-
-    flats:['A','B','C','D']
+    flatPrice:"Price",
+    floor:"Floor",
+    RoadFacing:"Road Facing",
+    ParkFacing:"Park Facing",
+    SqArea:"Sq Area",
+    WestOpen:"West Open",
+    Corner :"Corner",
+    AllFlats:['A-101','B-203','C-504','D-150','E-504'],
+    SelectedFlat :""
+    
   };
 
   handleChange = date => {
@@ -17,11 +25,20 @@ class AddApplicant extends Component{
     });
   };
 
-  SetFlatDisableAttributes = ()=>{
+  SetFlatDisableAttributes = event =>{
+    
 
     this.setState({
-      flatType:"hello world",
-      flatno: Selection
+      SelectedFlat : event.target.value,
+      flatType:"A-705",
+      flatPrice:"40,00,000",
+      floor:"7th",
+      RoadFacing:"Yes",
+      ParkFacing:"No",
+      SqArea:"2180 ",
+      WestOpen:"Yes",
+      Corner :"No",
+      
     })
   }
 
@@ -103,21 +120,45 @@ class AddApplicant extends Component{
 
           <form>
             <br/>
-          <div class="dropdown SetPositionLeftForflat  ">
+          <div class="dropdown SetPositionLeftFordropDown  ">
 
           <h5><b> SELECT FLAT </b></h5>
           <br/>
-          <select className="selectpicker dropbtn ">
 
-            <option>  ---Select Flat---</option>
+          <select 
+          className="selectpicker dropbtn select"
+          value ={this.state.SelectedFlat}
+          onChange = {this.SetFlatDisableAttributes}
+          >
+            <option >---Select Flat---</option>
 
-            
-    <option>{this.state.flats[1]}</option>
+            {this.state.AllFlats.map(flat=>(
+              <option
+              value={flat} 
+              
+            > {flat}</option>
+            ))}
           
-     </select>
+            </select>
+            
+         </div>
 
-           <MDBInput label={this.state.flatType}   type="text" disabled />
-           
+         <div className="SetPositionRightForFlats">
+
+          <MDBInput hint={this.state.flatType}  label="Type" type="text" disabled />
+          <MDBInput hint={this.state.flatPrice}  label="Price" type="text" disabled />
+          <MDBInput hint={this.state.floor}   label="Floor" type="text" disabled />
+          <MDBInput hint={this.state.RoadFacing}  label="Road Facing" type="text" disabled />
+          <MDBInput hint={this.state.ParkFacing}  label="Park Facing" type="text" disabled />
+
+         </div>
+
+         <div className="SetPositionLeftForFlats">
+
+          <MDBInput hint={this.state.WestOpen}   label="West Open" type="text" disabled />
+          <MDBInput hint={this.state.SqArea}   label="Sq. Area" type="text" disabled />
+          <MDBInput hint={this.state.Corner}   label="Corner" type="text" disabled />
+
          </div>
 
           
