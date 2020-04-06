@@ -271,7 +271,7 @@ main {
 
   margin-left: 500px;
   margin-right: -480px;
-  margin-top: -260px;
+  margin-top: -320px;
   margin-bottom: 20px;
 
 }
@@ -308,8 +308,18 @@ main {
 
   margin-left: 20px;
   margin-right: 70px;
-  margin-top: -230px;
+  margin-top: -315px;
   margin-bottom: 40px;
+}
+
+
+.SaveBtn{
+
+  margin-left: 10px;
+  margin-right: -400px;
+  margin-top: 70px;
+  margin-bottom: 30px;
+  
 }
 
 

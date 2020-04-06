@@ -1,19 +1,19 @@
 import React,{Component} from 'react'
 
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn ,MDBCard, MDBCardHeader } from 'mdbreact'
+import { MDBContainer, MDBRow, MDBCol, MDBInput ,MDBCard, MDBCardHeader , MDBBtn } from 'mdbreact'
 
 class AddApplicant extends Component{
   
   state = {
     startDate: new Date(),
-    flatType:"Flat Type",
-    flatPrice:"Price",
-    floor:"Floor",
-    RoadFacing:"Road Facing",
-    ParkFacing:"Park Facing",
-    SqArea:"Sq Area",
-    WestOpen:"West Open",
-    Corner :"Corner",
+    flatType:"-",
+    flatPrice:"-",
+    floor:"-",
+    RoadFacing:"-",
+    ParkFacing:"-",
+    SqArea:"-",
+    WestOpen:"-",
+    Corner :"-",
     AllFlats:['A-101','B-203','C-504','D-150','E-504'],
     SelectedFlat :""
     
@@ -38,8 +38,12 @@ class AddApplicant extends Component{
       SqArea:"2180 ",
       WestOpen:"Yes",
       Corner :"No",
+      value:"Enter phone"
       
     })
+  }
+  setValue= ()=>{
+    console.log("Vlaue set...")
   }
 
   
@@ -69,9 +73,10 @@ class AddApplicant extends Component{
             <h5><b> APPLICANT INFO </b></h5>
 
 
-            <MDBInput label="Appicant Name "  group type="text" />
+            <MDBInput label="Appicant Name "   group type="text" />
             <MDBInput label="Father's Name "  group type="text" />
             <MDBInput label="Address "  group type="text" />
+            <MDBInput label="Mobile#"  group type="tel" />
             <MDBInput label="Postal Address "  group type="text" />
 
             </div>
@@ -81,6 +86,7 @@ class AddApplicant extends Component{
             <MDBInput label="CNIC# (must be 13 digits) "  group type="text" />
             <MDBInput label="Nationality "  group type="text" />
             <MDBInput label="Occupation "  group type="text" />
+            <MDBInput label="Email"  group type="email" />
 
             <br/>
             <input placeholder="Date of Birth" type="date" id="date-picker" className="form-control datepicker" />
@@ -145,23 +151,39 @@ class AddApplicant extends Component{
 
          <div className="SetPositionRightForFlats">
 
-          <MDBInput hint={this.state.flatType}  label="Type" type="text" disabled />
-          <MDBInput hint={this.state.flatPrice}  label="Price" type="text" disabled />
-          <MDBInput hint={this.state.floor}   label="Floor" type="text" disabled />
-          <MDBInput hint={this.state.RoadFacing}  label="Road Facing" type="text" disabled />
-          <MDBInput hint={this.state.ParkFacing}  label="Park Facing" type="text" disabled />
+          <MDBInput hint={this.state.flatType} background label="Type" type="text" disabled />
+          <MDBInput hint={this.state.flatPrice}  background label="Price" type="text" disabled />
+          <MDBInput hint={this.state.floor}  background label="Floor" type="text" disabled />
+          <MDBInput hint={this.state.RoadFacing} background label="Road Facing" type="text" disabled />
+          <MDBInput hint={this.state.ParkFacing} background label="Park Facing" type="text" disabled />
+          <MDBInput hint={this.state.flatPrice} background  label="Total Price" type="number" disabled />
 
          </div>
 
          <div className="SetPositionLeftForFlats">
 
-          <MDBInput hint={this.state.WestOpen}   label="West Open" type="text" disabled />
-          <MDBInput hint={this.state.SqArea}   label="Sq. Area" type="text" disabled />
-          <MDBInput hint={this.state.Corner}   label="Corner" type="text" disabled />
+         <MDBInput label="Discount "  group type="number" />
+          <MDBInput hint={this.state.WestOpen}  background label="West Open" type="text" disabled />
+          <MDBInput hint={this.state.SqArea}  background label="Sq. Area" type="text" disabled />
+          <MDBInput hint={this.state.Corner}   background label="Corner" type="text" disabled />
 
+      
+            
          </div>
 
           
+          </form>
+
+
+          {/* form for Bookins */}
+
+          <form>
+
+        <div className="text-center buttonAllign SaveBtn">
+          
+           <MDBBtn href="/allfd">Save</MDBBtn>
+        </div>
+
           </form>
 
         </MDBCol>
