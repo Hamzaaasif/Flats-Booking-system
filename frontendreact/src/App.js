@@ -2,6 +2,7 @@ import React from 'react';
 import {BrowserRouter} from 'react-router-dom'
 import MainRouter from './Routers/homeRouters'
 import './index.css';
+import './home.css';
 import Sidebar from './dashboard/sideBar'
 
 const App = () => (

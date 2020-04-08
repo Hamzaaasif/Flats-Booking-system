@@ -1,13 +1,11 @@
 import React,{Component} from 'react'
-import { MDBCard, MDBCardBody, MDBCardHeader, MDBBtn, MDBTable ,MDBDataTable } from 'mdbreact';
+import { MDBCard, MDBCardBody, MDBCardHeader, MDBBtn, MDBTable ,MDBDataTable, MDBFormInline , MDBInput  } from 'mdbreact';
 
 class flatsDetails extends Component
 {
-  constructor(){
-    super();
+  constructor( props){
+    super(props)
 
-
-    
 
    this.data_panel = {
     columns: [
@@ -155,11 +153,27 @@ class flatsDetails extends Component
     ]
   };
 
+  
+
   this.print = ()=>{
 
     window.print();
   };
+
+  this.state = {
+    radio : false
+  }
+
+  this._handleInputChange = this._handleInputChange.bind(this);
+  
+ }
+
+
+ _handleInputChange(e) {
+  const element = e.target;
+  this.setState({radio: element.checked });
 }
+
   render(){
     return(
       
@@ -168,7 +182,7 @@ class flatsDetails extends Component
 
           <div>
             <MDBBtn onine rounded size="sm" color="white" className="px-2">
-              <a href="#win" className="fa fa-th-large mt-0"></a>
+              <i className="fa fa-th-large mt-0"></i>
             </MDBBtn>
 
             <MDBBtn outline rounded size="sm" color="white" className="px-2">
@@ -185,10 +199,6 @@ class flatsDetails extends Component
           </MDBBtn>
           <MDBBtn outline rounded size="sm" color="white" className="px-2" onClick={this.print}>
             <a href="#printpreview" className="fas fa-print mt-0"> Print</a>
-            {/* <ReactToPrint
-             trigger={() => <a href="#printpreview"> Print</a>}
-             content={() => this.data_panel}
-            /> */}
             
 
           </MDBBtn>
@@ -199,14 +209,47 @@ class flatsDetails extends Component
 
         </MDBCardHeader>
 
+
+
+        <div className = "checkBoxFlatForm">
+      {/* Default inline 1 */}
+      <div class="custom-control custom-checkbox custom-control-inline">
+        <input 
+        type="checkbox" 
+        class="custom-control-input" 
+        id="defaultInline1" 
+        onChange = {this._handleInputChange}  
+        checked={this.state.radio } />
+         
+
+        <label class="custom-control-label" for="defaultInline1">BOOKED</label>
+      </div>
+
+      {/* Default inline 2 */}
+      <div class="custom-control custom-checkbox custom-control-inline">
+        <input type="checkbox" class="custom-control-input" id="defaultInline2" onClick = {this.onClick = 2} checked={this.state.radio === 2 ? true : false}/>
+        <label class="custom-control-label" for="defaultInline2">UNBOOKED</label>
+      </div>
+
+     {/* Default inline 3 */}
+      <div class="custom-control custom-checkbox custom-control-inline">
+        <input type="checkbox" class="custom-control-input" id="defaultInline3" onClick = {this.onClick = 3} checked={this.state.radio === 3 ? true : false} />
+        <label class="custom-control-label" for="defaultInline3">ALL</label>
+      </div>
+    </div>
+
         <MDBCardBody cascade>
+
         <MDBTable btn fixed align="right">
-          {/* <MDBTableHead columns={this.data_panel.columns} />
-          <MDBTableBody rows={this.data_panel.rows} /> */}
+
+          
+
+          
           <MDBDataTable   
           bordered
           small 
           striped 
+          order = {['first' , 'asc']}
           data={this.data_panel}/>
         </MDBTable>
       

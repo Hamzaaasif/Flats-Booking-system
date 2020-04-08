@@ -371,3 +371,11 @@ main {
   text-align: center;
   text-align-last: center;
 }
+
+
+/* for checkboxes on flats details form */
+.checkBoxFlatForm{
+  margin-left: 300px;
+}
+
+
