@@ -271,7 +271,11 @@ main {
 
   margin-left: 500px;
   margin-right: -480px;
+<<<<<<< HEAD
   margin-top: -260px;
+=======
+  margin-top: -320px;
+>>>>>>> 674943b633caf6360da8ff4939d66bb89b95a6bf
   margin-bottom: 20px;
 
 }
@@ -288,18 +292,53 @@ main {
 
 }
 
-.SetPositionLeftForflat{
+.SetPositionLeftFordropDown{
 
   margin-left: 20px;
   margin-right: -20px;
 }
 
+/* for select flat disable inputs */
+.SetPositionRightForFlats{
+  
+  margin-left: 500px;
+  margin-right: -480px;
+  margin-top: -100px;
+  margin-bottom: 60px;
+}
 
+
+.SetPositionLeftForFlats{
+
+  margin-left: 20px;
+  margin-right: 70px;
+<<<<<<< HEAD
+  margin-top: -230px;
+=======
+  margin-top: -315px;
+>>>>>>> 674943b633caf6360da8ff4939d66bb89b95a6bf
+  margin-bottom: 40px;
+}
+
+
+<<<<<<< HEAD
+=======
+.SaveBtn{
+
+  margin-left: 10px;
+  margin-right: -400px;
+  margin-top: 70px;
+  margin-bottom: 30px;
+  
+}
+
+
+>>>>>>> 674943b633caf6360da8ff4939d66bb89b95a6bf
 
 /* Dropdown Button */
 .dropbtn {
   background-color: #56A5EC ;
-  color: white;
+  color: black;
   width: 160px;
   height: 50px;
   font-size: 16px;
@@ -338,3 +377,20 @@ main {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #56A5EC;}
+
+.select{
+  text-align: center;
+  text-align-last: center;
+<<<<<<< HEAD
+}
+=======
+}
+
+
+/* for checkboxes on flats details form */
+.checkBoxFlatForm{
+  margin-left: 300px;
+}
+
+
+>>>>>>> 674943b633caf6360da8ff4939d66bb89b95a6bf
