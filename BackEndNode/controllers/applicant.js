@@ -3,7 +3,7 @@ var sql = require('mysql');
 var con = sql.createConnection({
     host: "localhost",
     user: "root",
-    password: "root",
+    password: "",
     database: "mayarflats_db"
 });
 
@@ -127,3 +127,18 @@ exports.deleteApplicantDetails = (req , res)=>
         }
     })
 };
+
+
+//to get all applicants details
+
+exports.getAllapplicant = (req , res)=>
+{
+    let sql = "SELECT * FROM applicant_info "
+    con.query(sql , (err, result)=>{
+        if(err)throw err
+        else{
+            res.send(result)
+        }
+    })
+};
+
