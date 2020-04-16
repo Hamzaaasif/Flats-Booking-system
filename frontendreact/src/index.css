@@ -271,7 +271,11 @@ main {
 
   margin-left: 500px;
   margin-right: -480px;
+<<<<<<< HEAD
+  margin-top: -260px;
+=======
   margin-top: -320px;
+>>>>>>> 674943b633caf6360da8ff4939d66bb89b95a6bf
   margin-bottom: 20px;
 
 }
@@ -308,11 +312,17 @@ main {
 
   margin-left: 20px;
   margin-right: 70px;
+<<<<<<< HEAD
+  margin-top: -230px;
+=======
   margin-top: -315px;
+>>>>>>> 674943b633caf6360da8ff4939d66bb89b95a6bf
   margin-bottom: 40px;
 }
 
 
+<<<<<<< HEAD
+=======
 .SaveBtn{
 
   margin-left: 10px;
@@ -323,6 +333,7 @@ main {
 }
 
 
+>>>>>>> 674943b633caf6360da8ff4939d66bb89b95a6bf
 
 /* Dropdown Button */
 .dropbtn {
@@ -370,6 +381,9 @@ main {
 .select{
   text-align: center;
   text-align-last: center;
+<<<<<<< HEAD
+}
+=======
 }
 
 
@@ -379,3 +393,4 @@ main {
 }
 
 
+>>>>>>> 674943b633caf6360da8ff4939d66bb89b95a6bf
