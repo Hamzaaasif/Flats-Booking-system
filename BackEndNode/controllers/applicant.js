@@ -28,7 +28,7 @@ exports.appByCNIC = (req, res, next, id) => {
 
 
 // Post Applicant Details
-exports.postApplicantDetails = (req , res) => {
+exports.postApplicantDetails = (req , res, next) => {
     let data = {
         appli_name: req.body.appli_name,
         appli_father_name: req.body.appli_father_name,
@@ -46,12 +46,56 @@ exports.postApplicantDetails = (req , res) => {
                 error: err.sqlMessage
             });
         }
+        req.data = result.insertId
+        next()
+    });
+};
+
+exports.postKinDetails = (req , res) => {
+    let data = {
+        id: req.data,
+        kin_name: req.body.kin_name,
+        kin_relation: req.body.kin_relation,
+        kin_CNIC: req.body.kin_CNIC,
+        kin_address: req.body.kin_address
+    };
+
+    let sql = "INSERT INTO kin_info SET ?";
+    con.query(sql, [data], (err, result) => {
+        if(err){
+            return res.status(400).json({
+                error: err.sqlMessage
+            });
+        }
         else{
             res.status(200).json({
                 message: "Inserted Successfuly"
             });
         }
     });
+};
+
+// GET ALL APPLICANT
+exports.getAllApplicantDetails = (req , res)=>
+{
+    let sql = `SELECT 
+    applicant_info.id,
+    applicant_info.appli_name,
+    applicant_info.appli_father_name,
+    applicant_info.appli_DOB,
+    applicant_info.appli_CNIC,
+    applicant_info.appli_address,
+    applicant_info.appli_nationality,
+    applicant_info.appli_occupation
+    FROM applicant_info`
+    // applicant_mobile.appli_mobile
+    
+    con.query(sql , (err, rows)=>{
+        if(err)throw err
+        else{
+            res.send(rows)
+        }
+    })
 };
 
 // Get Applicant Details

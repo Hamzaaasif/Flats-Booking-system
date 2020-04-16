@@ -94,7 +94,7 @@ exports.kinValidator = (req, res, next) => {
 exports.applicantValidator = (req, res, next) => {
 
     req.check("appli_name", "Applicant name is required").notEmpty();
-    req.check("appli_appli_father_name", "Applicant father name is required").notEmpty();
+    req.check("appli_father_name", "Applicant father name is required").notEmpty();
     req.check("appli_DOB", "Applicant date of birth is required").notEmpty();
     req.check("appli_CNIC", "Applicant CNIC is required").notEmpty();
     req.check("appli_CNIC")
@@ -108,6 +108,19 @@ exports.applicantValidator = (req, res, next) => {
     req.check("appli_address", "Applicant address is required").notEmpty();
     req.check("appli_nationality", "Applicant nationality is required").notEmpty();
     req.check("appli_occupation", "Applicant occupation is required").notEmpty();
+
+    req.check("kin_name", "Kin name is required").notEmpty();
+    req.check("kin_relation", "Kin relation is required").notEmpty();
+    req.check("kin_address", "Kin address is required").notEmpty();
+    req.check("kin_CNIC", "Kin CNIC is required").notEmpty();
+    req.check("kin_CNIC")
+    .matches(/\d/)
+    .withMessage("CNIC must contain valid digits")
+    .isLength({
+        min: 13,
+        max: 13
+    })
+    .withMessage("CNIC must contain 13 digits")
 
     const errors = req.validationErrors();
     if(errors){

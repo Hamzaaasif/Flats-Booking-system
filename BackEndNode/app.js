@@ -4,10 +4,12 @@ const app = express();
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const expressValidator = require('express-validator')
+const cors = require('cors')
 
 const authRoutes = require('./routes/auth')
 const flatRoutes = require('./routes/flat_detail')
 const installmentRoutes = require('./routes/installment')
+
 const kinInfoRoutes = require('./routes/kin_info')
 const appRoutes = require('./routes/appliant')
 
@@ -15,6 +17,7 @@ const appRoutes = require('./routes/appliant')
 app.use(bodyParser.json())
 app.use(expressValidator());
 app.use(cookieParser());
+app.use(cors())
 
 app.use('/', authRoutes)
 app.use('/', flatRoutes)
