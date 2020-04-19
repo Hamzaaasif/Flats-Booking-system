@@ -39,11 +39,7 @@ class Sidebar extends Component {
                     Installments
                 </MDBListGroupItem>
             </NavLink>
-<<<<<<< HEAD
-            <NavLink to="/404" activeClassName="activeClass">
-=======
             <NavLink to="/getquerycust" activeClassName="activeClass">
->>>>>>> 674943b633caf6360da8ff4939d66bb89b95a6bf
                 <MDBListGroupItem>
                     <MDBIcon icon="user" className="mr-3"/>
                     Query Customers
