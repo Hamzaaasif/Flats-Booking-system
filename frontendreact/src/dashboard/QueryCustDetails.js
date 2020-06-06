@@ -12,6 +12,11 @@ class QueryCustDetails extends Component
 
     this.state={
       columns: [
+        {
+          'label': 'Select',
+          'field': 'check',
+          'sort': 'asc'
+        },
       
         {
           'label': 'Name',
@@ -30,7 +35,9 @@ class QueryCustDetails extends Component
         },
         
       ],
+
       rows: []
+
 
     };
 
