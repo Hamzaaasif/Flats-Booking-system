@@ -7,100 +7,100 @@ class home extends Component {
     super()
 
     
-    this.state = {
+    // this.state = {
 
-      data : {
-        columns:[
-          {
-            'label': 'Account Head',
-            'field': 'account',
-            'sort': 'asc'
-          },
-          {
-            'label': 'Due Amount',
-            'field': 'amount',
-            'sort': 'asc'
-          },
-          {
-            'label': 'Due Date',
-            'field': 'Duedate',
-            'sort': 'asc'
-          },
-          {
-            'label': 'Amount Paid',
-            'field': 'paidAmount',
-            'sort': 'asc'
-          },
-          {
-            'label': 'Paid On',
-            'field': 'PaidDate',
-            'sort': 'asc'
-          },
-          {
-            'label': 'Surcharge',
-            'field': 'surcharge',
-            'sort': 'asc'
-          },
+    //   data : {
+    //     columns:[
+    //       {
+    //         'label': 'Account Head',
+    //         'field': 'account',
+    //         'sort': 'asc'
+    //       },
+    //       {
+    //         'label': 'Due Amount',
+    //         'field': 'amount',
+    //         'sort': 'asc'
+    //       },
+    //       {
+    //         'label': 'Due Date',
+    //         'field': 'Duedate',
+    //         'sort': 'asc'
+    //       },
+    //       {
+    //         'label': 'Amount Paid',
+    //         'field': 'paidAmount',
+    //         'sort': 'asc'
+    //       },
+    //       {
+    //         'label': 'Paid On',
+    //         'field': 'PaidDate',
+    //         'sort': 'asc'
+    //       },
+    //       {
+    //         'label': 'Surcharge',
+    //         'field': 'surcharge',
+    //         'sort': 'asc'
+    //       },
 
-        ],
-        rows : [
-          {
-            // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-             'account': 'Installment 01',
-             'amount': '400,000',
-             'Duedate': ' 9 april 2020',
-             'paidAmount': '400,000',
-             'PaidDate': '9 april 2020',
-             'surcharge': '1800'
-           },
-           {
-            // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-             'account': 'Installment 05',
-             'amount': '400,000',
-             'Duedate': ' 4 april 2020',
-             'paidAmount': '400,000',
-             'PaidDate': '9 april 2020',
-             'surcharge': '18128'
-           },
-           {
-            // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-             'account': 'Installment 01',
-             'amount': '400,000',
-             'Duedate': ' 9 april 2020',
-             'paidAmount': '400,000',
-             'PaidDate': '9 april 2020',
-             'surcharge': '-'
-           },
-           {
-            // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-             'account': 'Installment 05',
-             'amount': '400,000',
-             'Duedate': ' 4 april 2020',
-             'paidAmount': '400,000',
-             'PaidDate': '9 april 2020',
-             'surcharge': '1212'
-           },
-           {
-            // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-             'account': 'Installment 01',
-             'amount': '400,000',
-             'Duedate': ' 9 april 2020',
-             'paidAmount': '400,000',
-             'PaidDate': '9 april 2020',
-             'surcharge': '122'
-           },
-           {
-            // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-             'account': 'Installment 05',
-             'amount': '400,000',
-             'Duedate': ' 4 april 2020',
-             'paidAmount': '400,000',
-             'PaidDate': '9 april 2020',
-             'surcharge': '1221'
-           },
+    //     ],
+    //     rows : [
+    //       {
+    //         // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
+    //          'account': 'Installment 01',
+    //          'amount': '400,000',
+    //          'Duedate': ' 9 april 2020',
+    //          'paidAmount': '400,000',
+    //          'PaidDate': '9 april 2020',
+    //          'surcharge': '1800'
+    //        },
+    //        {
+    //         // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
+    //          'account': 'Installment 05',
+    //          'amount': '400,000',
+    //          'Duedate': ' 4 april 2020',
+    //          'paidAmount': '400,000',
+    //          'PaidDate': '9 april 2020',
+    //          'surcharge': '18128'
+    //        },
+    //        {
+    //         // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
+    //          'account': 'Installment 01',
+    //          'amount': '400,000',
+    //          'Duedate': ' 9 april 2020',
+    //          'paidAmount': '400,000',
+    //          'PaidDate': '9 april 2020',
+    //          'surcharge': '-'
+    //        },
+    //        {
+    //         // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
+    //          'account': 'Installment 05',
+    //          'amount': '400,000',
+    //          'Duedate': ' 4 april 2020',
+    //          'paidAmount': '400,000',
+    //          'PaidDate': '9 april 2020',
+    //          'surcharge': '1212'
+    //        },
+    //        {
+    //         // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
+    //          'account': 'Installment 01',
+    //          'amount': '400,000',
+    //          'Duedate': ' 9 april 2020',
+    //          'paidAmount': '400,000',
+    //          'PaidDate': '9 april 2020',
+    //          'surcharge': '122'
+    //        },
+    //        {
+    //         // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
+    //          'account': 'Installment 05',
+    //          'amount': '400,000',
+    //          'Duedate': ' 4 april 2020',
+    //          'paidAmount': '400,000',
+    //          'PaidDate': '9 april 2020',
+    //          'surcharge': '1221'
+    //        },
 
-        ]
-      }
+    //     ]
+    //   }
 
 
     this.state ={
