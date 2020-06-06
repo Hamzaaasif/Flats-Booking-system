@@ -1,10 +1,11 @@
 import React , {Component } from 'react'
 import { MDBDataTable, MDBInput ,MDBCard ,MDBCardHeader, MDBBtn } from 'mdbreact'
-
+import axios from 'axios';
 
 class home extends Component {
   constructor(){
     super()
+
     
     this.state = {
 
@@ -101,13 +102,155 @@ class home extends Component {
         ]
       }
 
+
+    this.state ={
+      name: "",
+      mob_no: 0,
+      email: ""
     }
+    
+    // this.state = {
+
+    //   data : {
+    //     columns:[
+    //       {
+    //         'label': 'Account Head',
+    //         'field': 'account',
+    //         'sort': 'asc'
+    //       },
+    //       {
+    //         'label': 'Due Amount',
+    //         'field': 'amount',
+    //         'sort': 'asc'
+    //       },
+    //       {
+    //         'label': 'Due Date',
+    //         'field': 'Duedate',
+    //         'sort': 'asc'
+    //       },
+    //       {
+    //         'label': 'Amount Paid',
+    //         'field': 'paidAmount',
+    //         'sort': 'asc'
+    //       },
+    //       {
+    //         'label': 'Paid On',
+    //         'field': 'PaidDate',
+    //         'sort': 'asc'
+    //       },
+    //       {
+    //         'label': 'Surcharge',
+    //         'field': 'surcharge',
+    //         'sort': 'asc'
+    //       },
+
+    //     ],
+    //     rows : [
+    //       {
+    //         // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
+    //          'account': 'Installment 01',
+    //          'amount': '400,000',
+    //          'Duedate': ' 9 april 2020',
+    //          'paidAmount': '400,000',
+    //          'PaidDate': '9 april 2020',
+    //          'surcharge': '-'
+    //        },
+    //        {
+    //         // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
+    //          'account': 'Installment 05',
+    //          'amount': '400,000',
+    //          'Duedate': ' 4 april 2020',
+    //          'paidAmount': '400,000',
+    //          'PaidDate': '9 april 2020',
+    //          'surcharge': '-'
+    //        },
+    //        {
+    //         // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
+    //          'account': 'Installment 01',
+    //          'amount': '400,000',
+    //          'Duedate': ' 9 april 2020',
+    //          'paidAmount': '400,000',
+    //          'PaidDate': '9 april 2020',
+    //          'surcharge': '-'
+    //        },
+    //        {
+    //         // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
+    //          'account': 'Installment 05',
+    //          'amount': '400,000',
+    //          'Duedate': ' 4 april 2020',
+    //          'paidAmount': '400,000',
+    //          'PaidDate': '9 april 2020',
+    //          'surcharge': '-'
+    //        },
+    //        {
+    //         // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
+    //          'account': 'Installment 01',
+    //          'amount': '400,000',
+    //          'Duedate': ' 9 april 2020',
+    //          'paidAmount': '400,000',
+    //          'PaidDate': '9 april 2020',
+    //          'surcharge': '-'
+    //        },
+    //        {
+    //         // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
+    //          'account': 'Installment 05',
+    //          'amount': '400,000',
+    //          'Duedate': ' 4 april 2020',
+    //          'paidAmount': '400,000',
+    //          'PaidDate': '9 april 2020',
+    //          'surcharge': '-'
+    //        },
+
+    //     ]
+    //   }
+    // }
   }
+
+  handleChange = (Name) => (event) => {
+    this.setState({error: ""})
+    this.setState({[Name]: event.target.value});
+  };
+
+  clickSave = event => {
+    event.preventDefault()
+    const {name, mob_no, email} = this.state
+    
+    const query = {
+      name,
+      mob_no,
+      email
+    }
+
+    this.savefd(query).then(data => {
+      if(data.error){
+        this.setState({error: data.error, open: false})
+      }
+      else{
+        this.setState({
+          name: "",
+          mob_no: 0,
+          email: "",
+          error: "",
+          open: true
+        })
+      }
+    })
+  };
+
+  savefd = query => {
+    return axios.post(`http://localhost:8080/Postquerycust`,  query )
+    .then(response => {
+      return response.data
+    })
+    .catch(err => {
+      return err.response.data
+    })
+  };
 
   render()
   {
+    const {name, mob_no, email} = this.state
     return(
-
       <MDBCard className = "styletables">
 
         {/* for query cust form in home */}
@@ -122,18 +265,30 @@ class home extends Component {
         </MDBCardHeader>
 
         <form>
-        <MDBInput label="Name "  group type="text" validate error="wrong"
-            success="right" />
+          <MDBInput label="Name "
+            group type="text" 
+            validate error="wrong"
+            success="right"
+            onChange={this.handleChange("name")}
+            value={name} />
 
-          <MDBInput label="Mobile# "  group type="text" validate error="wrong"
-            success="right" />
+          <MDBInput label="Mobile# "
+            group type="text" 
+            validate error="wrong"
+            success="right" 
+            onChange={this.handleChange("mob_no")}
+            value={mob_no}/>
 
-        <MDBInput label="Email "  group type="email" validate error="wrong"
-            success="right" />
+          <MDBInput label="Email "  
+            group type="email" 
+            validate error="wrong"
+            success="right" 
+            onChange={this.handleChange("email")}
+            value={email}/>
 
             <div className="text-center ml-5">
         
-          <MDBBtn href="/">Save</MDBBtn>
+          <MDBBtn onClick={this.clickSave} href="/allfd" >Save</MDBBtn>
         </div>
 
 

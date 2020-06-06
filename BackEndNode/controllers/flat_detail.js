@@ -3,13 +3,8 @@ var sql = require('mysql');
 var con = sql.createConnection({
     host: "localhost",
     user: "root",
-    password: "",
+    password: "root",
     database: "mayarflats_db"
-});
-
-con.connect(function(err){
-    if(err) throw err;
-    console.log("Database connected...")
 });
 
 exports.flatByNum = (req, res, next, id) => {
@@ -33,7 +28,11 @@ exports.postFlatDetails = (req , res) => {
         type: req.body.type,
         floor: req.body.floor,
         covered_area: req.body.covered_area,
-        price: null
+        price: null,
+        isbooked: req.body.isbooked,
+        iscorner: req.body.iscorner,
+        iswestopen: req.body.iswestopen,
+        isroadfacing: req.body.isroadfacing
     };
     if(req.body.price){
         data.price = req.body.price

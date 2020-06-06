@@ -1,5 +1,7 @@
 import React , {Component} from 'react'
-import { MDBCard, MDBCardBody, MDBInput ,MDBCardHeader, MDBBtn, MDBTable ,MDBDataTable } from 'mdbreact';
+import { MDBCard, MDBCardBody, MDBCardHeader, MDBBtn, MDBTable ,MDBDataTable } from 'mdbreact';
+import axios from 'axios';
+
 
 class QueryCustDetails extends Component
 {
@@ -8,7 +10,7 @@ class QueryCustDetails extends Component
   {
     super()
 
-    this.queryData={
+    this.state={
       columns: [
         {
           'label': 'Select',
@@ -23,7 +25,7 @@ class QueryCustDetails extends Component
         },
         {
           'label': 'Mobile#',
-          'field': 'mobile',
+          'field': 'mob_no',
           'sort': 'asc'
         },
         {
@@ -33,33 +35,9 @@ class QueryCustDetails extends Component
         },
         
       ],
-      rows: [
-        {
-          'check': <input type="checkbox" className="checkbox-inline" id="checkbox6" />,
-          'name': 'Hamza ',
-          'mobile': '0123-4567899',
-          'email': 'hamza@gmail.com'
-        },
-        {
-           'check': <input type="checkbox" className = "form-check" id="checkbox7" />,
-          'name': 'amir',
-          'mobile': '0123-4567899',
-          'email': 'amir@gmail.com'
-         },
-         {
-            'check': <input type="checkbox"  className = "custom-control "  id="defaultInline2" />,
-           'name': 'james',
-           'mobile': '0123-4567899',
-           'email': 'james@gmail.com'
-          },
-          {
-            'check': <input type="checkbox"  className = "custom-checkbox"  id="defaultInline2" />,
-            'name': 'osama',
-            'mobile': '0323-3256861',
-            'email': 'osama@gmail.com'
-           }
-        
-      ]
+
+      rows: []
+
 
     };
 
@@ -68,6 +46,14 @@ class QueryCustDetails extends Component
       window.print();
     }
 
+  }
+
+  componentDidMount(){
+    axios.get(`http://localhost:8080/getquerycust`)
+      .then(response => {
+        this.setState({rows: response.data});
+        console.log(response.data)
+      })
   }
 
 
@@ -110,11 +96,11 @@ class QueryCustDetails extends Component
         <MDBTable btn fixed align="right">
           
           <MDBDataTable  
-           bordered
-          small
-          striped
-          exportToCSV
-          data={this.queryData}/>
+            bordered
+            small
+            striped
+            exportToCSV
+            data={this.state}/>
         </MDBTable>
       
       </MDBCardBody>

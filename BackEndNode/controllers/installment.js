@@ -3,14 +3,10 @@ var sql = require('mysql');
 var con = sql.createConnection({
     host: "localhost",
     user: "root",
-    password: "",
+    password: "root",
     database: "mayarflats_db"
 });
 
-con.connect(function(err){
-    if(err) throw err;
-    console.log("Database connected...")
-});
 
 exports.flatByNum = (req, res, next, id) => {
     let sql = `SELECT * FROM installments WHERE inst_flatno = ?`;

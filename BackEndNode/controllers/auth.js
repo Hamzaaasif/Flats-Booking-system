@@ -8,7 +8,7 @@ var sql = require('mysql');
 var con = sql.createConnection({
     host: "localhost",
     user: "root",
-    password: "",
+    password: "root",
     database: "mayarflats_db"
 });
 
