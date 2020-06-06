@@ -4,7 +4,7 @@ var mysql = require('mysql')
 var con = mysql.createConnection({
   host:"localhost",
   user:"root",
-  password:"",
+  password:"root",
   database:"mayarflats_db"
 })
 
@@ -18,10 +18,14 @@ exports.getquerycust = (req , res )=>{
 
 //for creating post
 exports.postquerycust = (req , res)=>{
-  let data = {name:req.body.name , mob_no:req.body.mob_no, email:req.body.email } ;
+  let data = {
+    name:req.body.name,
+    mob_no:req.body.mob_no,
+    email:req.body.email 
+  } ;
 
   let sql = "INSERT INTO query_cust SET ?"; 
-  con.query(sql  , data ,(err , result)=>{
+  con.query(sql, data ,(err , result)=>{
     if(err)throw err;
     console.log(result);
     res.status(400).json({

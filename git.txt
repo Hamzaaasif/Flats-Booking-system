@@ -1,0 +1,3 @@
+//for getting from original repo
+git fetch upstream 
+git merge upstream/master

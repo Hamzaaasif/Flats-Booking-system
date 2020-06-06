@@ -1,5 +1,7 @@
 import React , {Component} from 'react'
 import { MDBCard, MDBCardBody, MDBCardHeader, MDBBtn, MDBTable ,MDBDataTable } from 'mdbreact';
+import axios from 'axios';
+
 
 class QueryCustDetails extends Component
 {
@@ -8,7 +10,7 @@ class QueryCustDetails extends Component
   {
     super()
 
-    this.queryData={
+    this.state={
       columns: [
       
         {
@@ -18,7 +20,7 @@ class QueryCustDetails extends Component
         },
         {
           'label': 'Mobile#',
-          'field': 'mobile',
+          'field': 'mob_no',
           'sort': 'asc'
         },
         {
@@ -28,33 +30,7 @@ class QueryCustDetails extends Component
         },
         
       ],
-      rows: [
-        {
-         // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-          'name': 'Hamza Asif',
-          'mobile': '0323-3256861',
-          'email': 'hamza@gmail.com'
-        },
-        {
-          // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-          'name': 'Asif',
-          'mobile': '0323-3256861',
-          'email': 'asif@gmail.com'
-         },
-         {
-           // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-           'name': 'Kamal ',
-           'mobile': '0323-3256861',
-           'email': 'kamal@gmail.com'
-          },
-          {
-            // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-            'name': 'osama',
-            'mobile': '0323-3256861',
-            'email': 'osama@gmail.com'
-           }
-        
-      ]
+      rows: []
 
     };
 
@@ -63,6 +39,14 @@ class QueryCustDetails extends Component
       window.print();
     }
 
+  }
+
+  componentDidMount(){
+    axios.get(`http://localhost:8080/getquerycust`)
+      .then(response => {
+        this.setState({rows: response.data});
+        console.log(response.data)
+      })
   }
 
 
@@ -105,11 +89,11 @@ class QueryCustDetails extends Component
         <MDBTable btn fixed align="right">
           
           <MDBDataTable  
-           bordered
-          small
-          striped
-          exportToCSV
-          data={this.queryData}/>
+            bordered
+            small
+            striped
+            exportToCSV
+            data={this.state}/>
         </MDBTable>
       
       </MDBCardBody>
