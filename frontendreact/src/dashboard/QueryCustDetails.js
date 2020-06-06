@@ -1,5 +1,5 @@
 import React , {Component} from 'react'
-import { MDBCard, MDBCardBody, MDBCardHeader, MDBBtn, MDBTable ,MDBDataTable } from 'mdbreact';
+import { MDBCard, MDBCardBody, MDBInput ,MDBCardHeader, MDBBtn, MDBTable ,MDBDataTable } from 'mdbreact';
 
 class QueryCustDetails extends Component
 {
@@ -10,6 +10,11 @@ class QueryCustDetails extends Component
 
     this.queryData={
       columns: [
+        {
+          'label': 'Select',
+          'field': 'check',
+          'sort': 'asc'
+        },
       
         {
           'label': 'Name',
@@ -30,25 +35,25 @@ class QueryCustDetails extends Component
       ],
       rows: [
         {
-         // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-          'name': 'Hamza Asif',
-          'mobile': '0323-3256861',
+          'check': <input type="checkbox" className="checkbox-inline" id="checkbox6" />,
+          'name': 'Hamza ',
+          'mobile': '0123-4567899',
           'email': 'hamza@gmail.com'
         },
         {
-          // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-          'name': 'Asif',
-          'mobile': '0323-3256861',
-          'email': 'asif@gmail.com'
+           'check': <input type="checkbox" className = "form-check" id="checkbox7" />,
+          'name': 'amir',
+          'mobile': '0123-4567899',
+          'email': 'amir@gmail.com'
          },
          {
-           // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-           'name': 'Kamal ',
-           'mobile': '0323-3256861',
-           'email': 'kamal@gmail.com'
+            'check': <input type="checkbox"  className = "custom-control "  id="defaultInline2" />,
+           'name': 'james',
+           'mobile': '0123-4567899',
+           'email': 'james@gmail.com'
           },
           {
-            // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
+            'check': <input type="checkbox"  className = "custom-checkbox"  id="defaultInline2" />,
             'name': 'osama',
             'mobile': '0323-3256861',
             'email': 'osama@gmail.com'

@@ -38,7 +38,7 @@ class Flats_form extends Component {
 
   clickSave = event => {
     event.preventDefault()
-    const {flat_num, type, floor, covered_area, isbooked, iscorner, iswestopen, isroadfacing} = this.state
+    const {flat_num, type, floor, covered_area, isbooked, iscorner, iswestopen, isroadfacing , price} = this.state
     const flat_detail = {
       flat_num,
       type,
@@ -47,7 +47,8 @@ class Flats_form extends Component {
       isbooked,
       iscorner,
       iswestopen,
-      isroadfacing
+      isroadfacing,
+      price
     }
 
     this.savefd(flat_detail).then(data => {
@@ -65,6 +66,7 @@ class Flats_form extends Component {
           iscorner: false,
           iswestopen: false,
           isroadfacing: false,  
+          price: "",
           error: "",
           open: true
         })
@@ -84,7 +86,7 @@ class Flats_form extends Component {
 
   render()
     {
-      const {flat_num, type, floor, covered_area, error, open} = this.state
+      const {flat_num, type, floor, covered_area, error,price, open} = this.state
       return(
         <MDBCard className="styleFlatForm" >
           <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3 ">
@@ -140,6 +142,15 @@ class Flats_form extends Component {
                     success="right"
                     onChange={this.handleChange("covered_area")}
                     value={covered_area}
+                    />
+
+                    <MDBInput
+                    label="Price "
+                    group type="number"
+                    validate error="wrong"
+                    success="right"
+                    onChange={this.handleChange("price")}
+                    value={price}
                     />
 
                     <br/>

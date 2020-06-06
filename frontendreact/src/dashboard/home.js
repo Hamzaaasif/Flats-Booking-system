@@ -50,7 +50,7 @@ class home extends Component {
              'Duedate': ' 9 april 2020',
              'paidAmount': '400,000',
              'PaidDate': '9 april 2020',
-             'surcharge': '-'
+             'surcharge': '1800'
            },
            {
             // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
@@ -59,7 +59,7 @@ class home extends Component {
              'Duedate': ' 4 april 2020',
              'paidAmount': '400,000',
              'PaidDate': '9 april 2020',
-             'surcharge': '-'
+             'surcharge': '18128'
            },
            {
             // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
@@ -77,7 +77,7 @@ class home extends Component {
              'Duedate': ' 4 april 2020',
              'paidAmount': '400,000',
              'PaidDate': '9 april 2020',
-             'surcharge': '-'
+             'surcharge': '1212'
            },
            {
             // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
@@ -86,7 +86,7 @@ class home extends Component {
              'Duedate': ' 9 april 2020',
              'paidAmount': '400,000',
              'PaidDate': '9 april 2020',
-             'surcharge': '-'
+             'surcharge': '122'
            },
            {
             // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
@@ -95,7 +95,7 @@ class home extends Component {
              'Duedate': ' 4 april 2020',
              'paidAmount': '400,000',
              'PaidDate': '9 april 2020',
-             'surcharge': '-'
+             'surcharge': '1221'
            },
 
         ]
@@ -142,6 +142,7 @@ class home extends Component {
 
 
         {/* for Installmets Table in home */}
+
         <div className="installments">
         <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3  ">
 
