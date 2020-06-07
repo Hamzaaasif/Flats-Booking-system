@@ -8,10 +8,14 @@ const {getquerycust,
     deletebyname
 } = require("../controllers/query_cust")
 
+const {
+    postQuerycustValidator
+} = require("../validator/index")
+
 //to get all query customers
 router.get("/getquerycust" , getquerycust)
 //to post the query customers
-router.post("/Postquerycust" , postquerycust)
+router.post("/Postquerycust" , postQuerycustValidator,  postquerycust)
 
 router.param("name",QueryCustName)
 

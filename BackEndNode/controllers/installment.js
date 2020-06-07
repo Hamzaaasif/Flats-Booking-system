@@ -54,6 +54,15 @@ exports.getInstallmentDetails = (req , res)=>
     con.query(sql , (err, rows)=>{
         if(err)throw err
         else{
+
+             //for formatting a number into comma seprated values
+        var nf = new Intl.NumberFormat();
+          var i;
+         for(i=0;i<rows.length ; i++)
+             {
+
+                rows[i].inst_amount=nf.format(result[i].inst_amount)
+             }
             res.send(rows)
         }
     })
@@ -87,6 +96,16 @@ exports.allInstallment = (req, res) => {
                 error: err
             })
         }
+
+        //for formatting a number into comma seprated values
+      var nf = new Intl.NumberFormat();
+      var i;
+      for(i=0;i<result.length ; i++)
+      {
+
+          result[i].inst_amount=nf.format(result[i].inst_amount)
+      }
+
         res.json(result)
     })
 }

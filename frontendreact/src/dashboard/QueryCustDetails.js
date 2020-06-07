@@ -1,5 +1,5 @@
 import React , {Component} from 'react'
-import { MDBCard, MDBCardBody, MDBCardHeader, MDBBtn, MDBTable ,MDBDataTable } from 'mdbreact';
+import { MDBCard, MDBCardBody, MDBCardHeader, MDBBtn, MDBTable ,MDBDataTable,MDBInput } from 'mdbreact';
 import axios from 'axios';
 
 
@@ -36,7 +36,11 @@ class QueryCustDetails extends Component
         
       ],
 
-      rows: []
+      rows: [
+        {
+          
+        }
+      ]
 
 
     };
@@ -44,6 +48,11 @@ class QueryCustDetails extends Component
     this.print=()=>
     {
       window.print();
+    }
+
+    this.onClick = (e)=>{
+      console.log(e)
+
     }
 
   }
@@ -62,7 +71,7 @@ class QueryCustDetails extends Component
     return(
 
       <MDBCard className="styletables" >
-        <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+        <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3  ">
 
           <div>
             <MDBBtn onine rounded size="sm" color="white" className="px-2">
@@ -99,7 +108,6 @@ class QueryCustDetails extends Component
             bordered
             small
             striped
-            exportToCSV
             data={this.state}/>
         </MDBTable>
       

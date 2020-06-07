@@ -1,4 +1,4 @@
-import { MDBListGroup, MDBListGroupItem, MDBIcon , MDBDropdown , MDBDropdownMenu , MDBDropdownToggle , MDBDropdownItem} from 'mdbreact';
+import { MDBListGroup, MDBListGroupItem, MDBIcon , MDBDropdown , MDBDropdownMenu , MDBDropdownToggle , MDBDropdownItem , MDBRow , MDBCol} from 'mdbreact';
 import React,{Component} from 'react';
 import { NavLink } from 'react-router-dom';
 //import logo from './mdb-react.png'
@@ -15,10 +15,12 @@ class Sidebar extends Component {
 
     return(
 
-
-        <div className="sidebar-fixed position-fixed">
         
-            <h3 className = "HeadingStyle"  >MAYAR GROUP</h3>
+        
+
+         <div className="sidebar-fixed position-fixed">
+        
+        <h3 className = "HeadingStyle"  >MAYAR GROUP</h3>
             
         <MDBListGroup className="list-group-flush">
             <NavLink exact={true} to="/" activeClassName="activeClass">
@@ -42,7 +44,7 @@ class Sidebar extends Component {
                 </MDBListGroupItem>
             </NavLink>
 
-            <NavLink to="/maps" activeClassName="activeClass">
+            <NavLink to="/allinsta" activeClassName="activeClass">
                 <MDBListGroupItem>
                     <MDBIcon icon="dollar-sign" className="mr-3"/>
                     Installments
@@ -70,8 +72,10 @@ class Sidebar extends Component {
               </MDBDropdown>
 
         </MDBListGroup>
+        
 
-    </div>
+  </div>
+
 
     
   );

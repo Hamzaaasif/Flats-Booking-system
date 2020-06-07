@@ -24,6 +24,11 @@ class Flats_form extends Component {
 
   handleChange = (Name) => (event) => {
     this.setState({error: ""})
+    if(Name === "price")
+    {
+      console.log("Price",event.target.value)
+      
+    }
     this.setState({[Name]: event.target.value});
   };
 
@@ -86,7 +91,7 @@ class Flats_form extends Component {
 
   render()
     {
-      const {flat_num, type, floor, covered_area, error,price, open} = this.state
+      const {flat_num, type, floor, covered_area, error, price, open} = this.state
       return(
         <MDBCard className="styleFlatForm" >
           <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3 ">
@@ -151,7 +156,9 @@ class Flats_form extends Component {
                     success="right"
                     onChange={this.handleChange("price")}
                     value={price}
+                    
                     />
+                    
 
                     <br/>
 

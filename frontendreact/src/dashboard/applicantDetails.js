@@ -65,35 +65,39 @@ class Applicant extends Component
   render(){
     return(
       <MDBCard className="styletables" >
-        <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
-          
-            <MDBBtn rounded size="sm" color="white" className="px-2">
+
+
+          <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3  ">
+
+          <div>
+            <MDBBtn onine rounded size="sm" color="white" className="px-2">
               <a href="#win" className="fa fa-th-large mt-0"></a>
             </MDBBtn>
 
             <MDBBtn outline rounded size="sm" color="white" className="px-2">
             <i className="fa fa-columns mt-0"></i>
-             </MDBBtn>
-
-            <h4><b>APPLICANT INFORMATION</b></h4>
-            {/* <a href="/" className="white-text mx-3">FLATS DETAILS</a> */}
-            <MDBBtn outline rounded size="sm" color="white" className="px-2">
-              <i className="fas fa-pencil-alt mt-0"></i>
             </MDBBtn>
 
-            <MDBBtn outline rounded size="sm" color="white" className="px-2" onClick={this.print}>
-              <a href="#printpreview" className="fas fa-print mt-0"> Print</a>
-            {/* <ReactToPrint
-             trigger={() => <a href="#printpreview"> Print</a>}
-             content={() => this.data_panel}
-            /> */}
-            </MDBBtn>
+          </div>
+          <h4><b>APPLICANT INFORMATION</b></h4>
 
-            <MDBBtn outline rounded size="sm" color="white" className="px-2">
-              <a href="/postappli"className="fas fa-plus mt-0"> ADD</a>
-            </MDBBtn>
+          <div>
+          <MDBBtn outline rounded size="sm" color="white" className="px-2">
+            <i className="fas fa-pencil-alt mt-0"></i>
+          </MDBBtn>
+          <MDBBtn outline rounded size="sm" color="white" className="px-2" onClick={this.print}>
+            <a href="#printpreview" className="fas fa-print mt-0"> Print</a>
+            
 
-        </MDBCardHeader>
+          </MDBBtn>
+          <MDBBtn outline rounded size="sm" color="white" className="px-2">
+            <a href="/postappli"className="fas fa-plus mt-0"> ADD</a>
+          </MDBBtn>
+          </div>
+
+          </MDBCardHeader>
+
+
 
         <MDBCardBody cascade>
           <MDBTable btn fixed align="right">

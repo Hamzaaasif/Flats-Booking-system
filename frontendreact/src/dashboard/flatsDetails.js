@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios';
-import { MDBCard, MDBCardBody, MDBCardHeader, MDBBtn, MDBTable ,MDBDataTable, MDBTableHead, MDBTableBody} from 'mdbreact';
+import { MDBCard, MDBCardBody, MDBCardHeader, MDBBtn, MDBTable ,MDBDataTable, MDBDropdown, MDBDropdownToggle ,MDBDropdownMenu, MDBDropdownItem} from 'mdbreact';
+var booked, all, unbooked
 
 class flatsDetails extends Component
 {
@@ -72,78 +73,87 @@ class flatsDetails extends Component
 
   componentDidMount(){
     axios.get(`http://localhost:8080/allfd`)
-      .then(response => {
-        this.setState({rows: response.data});
-        console.log(response.data)
-      })
+    .then(response => {
+      this.setState({rows: response.data});
+      all = response.data
+    })
+    
+    axios.get(`http://localhost:8080/booked`)
+    .then(response => {
+      booked = response.data
+    })
+
+    axios.get(`http://localhost:8080/unbooked`)
+    .then(response => {
+      unbooked = response.data
+    })
   }
+
+
+  handleChange = (Name) => (event) => {
+    if(Name === "Booked")
+    {
+      this.setState({rows: booked})
+    }
+    else if(Name === "unBooked"){
+      this.setState({rows: unbooked})
+    }
+    else if(Name === "All"){
+      this.setState({rows: all})
+    }
+  };
 
   
   render(){
     return(
       <MDBCard className="styletables" >
-        <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 px-8   mx-4 mb-3">
 
-            <MDBBtn rounded size="sm" color="white" className="px-2">
+
+
+        
+
+          <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3  ">
+
+          <div>
+            <MDBBtn onine rounded size="sm" color="white" className="px-2">
               <a href="#win" className="fa fa-th-large mt-0"></a>
             </MDBBtn>
 
             <MDBBtn outline rounded size="sm" color="white" className="px-2">
-              <i className="fa fa-columns mt-0"></i>
+            <i className="fa fa-columns mt-0"></i>
             </MDBBtn>
 
-            <h4><b className="align-items-center">FLATS DETAILS</b></h4>
-            {/* <a href="/" className="white-text mx-3">FLATS DETAILS</a> */}
-            <MDBBtn outline rounded size="sm" color="white" className="px-2">
-              <i className="fas fa-pencil-alt mt-0"> Edit</i>
-            </MDBBtn>
+          </div>
+          <h4><b>FLATS DETAILS</b></h4>
 
-            <MDBBtn outline rounded size="sm" color="white" className="px-2" onClick={this.print}>
-              <a href="#printpreview" className="fas fa-trash alt mt-0"> Delete</a>
-              
-            </MDBBtn>
-
-
-            <MDBBtn outline rounded size="sm" color="white" className="px-2" onClick={this.print}>
-              <a href="#printpreview" className="fas fa-print mt-0"> Print</a>
-              
-            </MDBBtn>
-
+          <div>
+          <MDBBtn outline rounded size="sm" color="white" className="px-2">
+            <i className="fas fa-pencil-alt mt-0"></i>
+          </MDBBtn>
+          <MDBBtn outline rounded size="sm" color="white" className="px-2" onClick={this.print}>
+            <a href="#printpreview" className="fas fa-print mt-0"> Print</a>
             
 
-            <MDBBtn outline rounded size="sm" color="white" className="px-2">
-              <a href="/postfd"className="fas fa-plus mt-0"> Form</a>
-            </MDBBtn>
+          </MDBBtn>
+          <MDBBtn outline rounded size="sm" color="white" className="px-2">
+            <a href="/postfd"className="fas fa-plus mt-0"> ADD</a>
+          </MDBBtn>
+          </div>
 
-        </MDBCardHeader>
+          </MDBCardHeader>
 
-        <div className = "checkBoxFlatForm">
-      {/* Default inline 1 */}
-      <div class="custom-control custom-checkbox custom-control-inline">
-        <input 
-        type="checkbox" 
-        class="custom-control-input" 
-        id="defaultInline1" 
-        // onChange = {this._handleInputChange}  
-        //  checked={this.state.radio }
-         />
-         
 
-        <label class="custom-control-label" for="defaultInline1">BOOKED</label>
-      </div>
-
-      {/* Default inline 2 */}
-      <div class="custom-control custom-checkbox custom-control-inline">
-        <input type="checkbox" class="custom-control-input" id="defaultInline2" onClick = {this.onClick = 2} checked={this.state.radio === 2 ? true : false}/>
-        <label class="custom-control-label" for="defaultInline2">UNBOOKED</label>
-      </div>
-
-     {/* Default inline 3 */}
-      <div class="custom-control custom-checkbox custom-control-inline">
-        <input type="checkbox" class="custom-control-input" id="defaultInline3" onClick = {this.onClick = 3} checked={this.state.radio === 3 ? true : false} />
-        <label class="custom-control-label" for="defaultInline3">ALL</label>
-      </div>
-    </div>
+          <MDBDropdown className="d-flex justify-content-center">
+          <MDBDropdownToggle caret color="primary">
+            Select
+          </MDBDropdownToggle>
+          <MDBDropdownMenu basic>
+            <MDBDropdownItem onClick = {this.handleChange("Booked")}> Booked Flats</MDBDropdownItem>
+            <MDBDropdownItem onClick = {this.handleChange("unBooked")}> Unbooked Flats</MDBDropdownItem>
+            <MDBDropdownItem onClick = {this.handleChange("All")}> All Flats </MDBDropdownItem>
+            {/* <MDBDropdownItem divider /> */}
+          </MDBDropdownMenu>
+        </MDBDropdown>
 
 
         <MDBCardBody cascade>

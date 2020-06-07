@@ -12,6 +12,7 @@ const installmentRoutes = require('./routes/installment')
 const kinInfoRoutes = require('./routes/kin_info')
 const appRoutes = require('./routes/appliant')
 const queryCustRoutes = require('./routes/query_cust')
+const bookingsRoutes = require('./routes/bookings')
 
 //middlewares
 app.use(bodyparer.json())
@@ -26,6 +27,7 @@ app.use('/', installmentRoutes)
 app.use('/', kinInfoRoutes)
 app.use('/', appRoutes)
 app.use('/', queryCustRoutes)
+app.use('/', bookingsRoutes)
 
 const port = 8080
 app.listen(port, ()=>{

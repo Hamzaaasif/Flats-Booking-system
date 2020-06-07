@@ -1,6 +1,8 @@
 import React,{Component} from 'react'
 import axios from 'axios';
 import { MDBContainer, MDBRow, MDBCol, MDBInput ,MDBCard, MDBCardHeader , MDBBtn } from 'mdbreact'
+var AllFlats = [] ;
+
 
 class AddApplicant extends Component{
   
@@ -22,12 +24,39 @@ class AddApplicant extends Component{
       kin_address: "",
       error: "",
       open: false,
-      AllFlats:['A-101','B-203','C-504','D-150','E-504']
+      allFlatsData: [],
+      SelectedFlat :"",
+
     }
+
+    this.flatdata().then(data => {
+      if(data.error){
+        this.setState({error: data.error, open: false})
+      }
+      else{
+        var i
+        for (i = 0; i < data.length; i++) {
+          AllFlats[i]=  data[i].flat_num
+        }
+
+
+      }
+    })
   }
 
+  flatdata(){
+    return axios.get(`http://localhost:8080/unbooked`)
+    .then(response => {
+      this.setState({allFlatsData: response.data })
+      console.log("res",this.state.allFlatsData)
+      return response.data
+    })
+    .catch(err => {
+      return err.response.data
+    })
+  };
 
-   handleChange = (Name) => (event) => {
+  handleChange = (Name) => (event) => {
     this.setState({error: ""})
     this.setState({[Name]: event.target.value});
   };
@@ -76,7 +105,7 @@ class AddApplicant extends Component{
         })
       }
     })
-  };
+  }
 
   savefd = applicant => {
     return axios.post(`http://localhost:8080/postappli`,  applicant )
@@ -88,6 +117,32 @@ class AddApplicant extends Component{
     })
   };
 
+  //for dropdown selection flat
+
+  SetFlatDisableAttributes = event =>{
+    // console.log("flat det array", flatdet[0]) 
+    var i
+    for(i=0 ; i < AllFlats.length ; i++)
+    {
+
+
+    if(event.target.value === this.state.allFlatsData[i].flat_num ){
+
+      this.setState({
+        SelectedFlat : event.target.value, //compare target value with data.flatno 
+        flatType: this.state.allFlatsData[i].type,
+        flatPrice: this.state.allFlatsData[i].price,
+        floor: this.state.allFlatsData[i].floor,
+        RoadFacing: this.state.allFlatsData[i].isroadfacing,
+        ParkFacing: 0,
+        SqArea: this.state.allFlatsData[i].covered_area,
+        WestOpen: this.state.allFlatsData[i].iswestopen,
+        Corner : this.state.allFlatsData[i].iscorner,
+      })
+
+    }
+  }
+}
   
 
   render()
@@ -245,7 +300,7 @@ class AddApplicant extends Component{
           >
             <option >---Select Flat---</option>
 
-            {this.state.AllFlats.map(flat=>(
+            {AllFlats.map(flat=>(
               <option
               value={flat} 
               
