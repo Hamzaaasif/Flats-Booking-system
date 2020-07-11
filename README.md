@@ -26,49 +26,8 @@ https://www.apachefriends.org/download.html
 
 To download all packages from npm.
 ```
-npm install express
+npm install
 ```
-```
-npm install mysql
-```
-```
-npm install morgan
-```
-```
-npm install body-parser
-```
-```
-npm install cookie-parser
-```
-```
-npm install express-validator@5.3.0
-```
-```
-npm install dotenv
-```
-```
-npm install jsonwebtoken
-```
-```
-npm install express-jwt
-```
-```
-npm install uuid/v1
-```
-```
-npm install crypto
-```
-```
-npm install react-router-dom
-```
-```
-npm install mdbreact
-```
-```
-npm install schema-utils
-```
-
-
 
 And start the xampp server
 
