@@ -1,3 +1,8 @@
+![alt text](https://github.com/Hamzaaasif/Flats-Booking-system/blob/master/query%20customers.JPG?raw=true)
+
+![alt text](https://github.com/Hamzaaasif/Flats-Booking-system/blob/master/applicant%20form.JPG?raw=true)
+
+
 # Project Title
 
 System is design for Mayar Builders, so they can easily maintain their record for bookings, installments an applicant information.
