@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios';
+import Sidebar from '../dashboard/sideBar'
 import { MDBCard, MDBCardBody, MDBCardHeader, MDBBtn, MDBTable ,MDBDataTable, MDBDropdown, MDBDropdownToggle ,MDBDropdownMenu, MDBDropdownItem} from 'mdbreact';
 var booked, all, unbooked
 
@@ -106,6 +107,9 @@ class flatsDetails extends Component
   
   render(){
     return(
+      <div>
+        <Sidebar/>
+      
       <MDBCard className="styletables" >
 
 
@@ -170,6 +174,7 @@ class flatsDetails extends Component
       
         </MDBCardBody>
       </MDBCard>
+      </div>
     )
   }
 }

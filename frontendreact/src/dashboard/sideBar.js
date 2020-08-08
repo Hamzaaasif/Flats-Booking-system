@@ -2,7 +2,7 @@ import { MDBListGroup, MDBListGroupItem, MDBIcon , MDBDropdown , MDBDropdownMenu
 import React,{Component} from 'react';
 import { NavLink } from 'react-router-dom';
 //import logo from './mdb-react.png'
-
+import {Signout} from '../auth/auth'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
@@ -23,7 +23,8 @@ class Sidebar extends Component {
         <h3 className = "HeadingStyle"  >MAYAR GROUP</h3>
             
         <MDBListGroup className="list-group-flush">
-            <NavLink exact={true} to="/" activeClassName="activeClass">
+
+            <NavLink exact={true} to="/home" activeClassName="activeClass">
                 <MDBListGroupItem>
                     <MDBIcon icon="chart-pie" className="mr-3"/>
                     Home
@@ -58,18 +59,13 @@ class Sidebar extends Component {
                 </MDBListGroupItem>
                 </NavLink>
 
-
-                <MDBDropdown>
-                <MDBDropdownToggle nav caret>
-                <MDBIcon icon="file-alt" className="mr-3"/>
-                                     Reports
-                </MDBDropdownToggle>
-                <MDBDropdownMenu>
-                  <MDBDropdownItem  href="#!">Beach Party Places</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Beach Love Stories</MDBDropdownItem>
-                  <MDBDropdownItem href="#!">Map</MDBDropdownItem>
-                </MDBDropdownMenu>
-              </MDBDropdown>
+                <NavLink to="/" activeClassName="activeClass1">
+                <MDBListGroupItem onClick={Signout}>
+                    <MDBIcon icon="undo" className="mr-3" />
+                    
+                    Sign Out
+                </MDBListGroupItem>
+                </NavLink>
 
         </MDBListGroup>
         

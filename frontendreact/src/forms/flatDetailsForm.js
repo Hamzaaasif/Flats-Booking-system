@@ -93,7 +93,10 @@ class Flats_form extends Component {
     {
       const {flat_num, type, floor, covered_area, error, price, open} = this.state
       return(
-        <MDBCard className="styleFlatForm" >
+
+       
+
+        <MDBCard className="" >
           <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3 ">
             <h4><b>ADD FLAT</b></h4>
           </MDBCardHeader>

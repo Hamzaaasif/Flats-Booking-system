@@ -1,6 +1,6 @@
 import React , {Component } from 'react'
 import { MDBDataTable, MDBInput ,MDBCard ,MDBCardHeader, MDBBtn } from 'mdbreact'
-
+import Sidebar from '../dashboard/sideBar'
 
 class installmentsTable extends Component 
 {
@@ -111,6 +111,9 @@ class installmentsTable extends Component
     {
 
       return(
+        <div>
+          <Sidebar/>
+        
 
         <MDBCard className="styletables" >     
 
@@ -155,6 +158,7 @@ class installmentsTable extends Component
 
         
       </MDBCard>
+      </div>
 
       )
     }

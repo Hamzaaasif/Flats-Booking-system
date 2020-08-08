@@ -1,6 +1,7 @@
 import React , {Component} from 'react'
 import { MDBCard, MDBCardBody, MDBCardHeader, MDBBtn, MDBTable ,MDBDataTable,MDBInput } from 'mdbreact';
 import axios from 'axios';
+import Sidebar from '../dashboard/sideBar'
 
 
 class QueryCustDetails extends Component
@@ -69,6 +70,10 @@ class QueryCustDetails extends Component
   render()
   {
     return(
+      <div>
+        <Sidebar/>
+      
+
 
       <MDBCard className="styletables" >
         <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3  ">
@@ -95,7 +100,7 @@ class QueryCustDetails extends Component
 
           </MDBBtn>
           <MDBBtn outline rounded size="sm" color="white" className="px-2">
-            <a href="/"className="fas fa-plus mt-0"> ADD</a>
+            <a href="/home"className="fas fa-plus mt-0"> ADD</a>
           </MDBBtn>
           </div>
 
@@ -113,6 +118,7 @@ class QueryCustDetails extends Component
       
       </MDBCardBody>
       </MDBCard>
+      </div>
 
     )
   }

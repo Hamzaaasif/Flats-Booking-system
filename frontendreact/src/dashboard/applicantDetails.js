@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import axios from 'axios';
+import Sidebar from '../dashboard/sideBar'
 import { MDBCard, MDBCardBody, MDBCardHeader, MDBBtn, MDBTable ,MDBDataTable   } from 'mdbreact';
 
 class Applicant extends Component
@@ -64,6 +65,9 @@ class Applicant extends Component
 
   render(){
     return(
+      <div>
+        <Sidebar/>
+      
       <MDBCard className="styletables" >
 
 
@@ -107,11 +111,11 @@ class Applicant extends Component
               bordered
               small
               striped
-              exportToCSV
               data={this.state}/>
           </MDBTable>
         </MDBCardBody>
       </MDBCard>
+      </div>
     );
   }
 }

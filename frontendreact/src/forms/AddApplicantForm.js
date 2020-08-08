@@ -153,7 +153,8 @@ class AddApplicant extends Component{
       kin_name, kin_relation, kin_CNIC, kin_address, error, open} = this.state
 
     return (
-      <MDBCard className="styleFlatForm" >
+      
+      <MDBCard className="" >
 
         <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3 ">
 
@@ -343,7 +344,9 @@ class AddApplicant extends Component{
 
         <div className="text-center buttonAllign SaveBtn">
           
+          <MDBBtn href="/getappli"  >Back</MDBBtn>
            <MDBBtn href="/allfd" onClick={this.clickSave} >Save</MDBBtn>
+           
         </div>
 
           </form>

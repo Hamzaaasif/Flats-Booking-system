@@ -1,6 +1,7 @@
 import React , {Component } from 'react'
 import { MDBInput ,MDBCard ,MDBCardHeader, MDBBtn } from 'mdbreact'
 import axios from 'axios';
+import Sidebar from '../dashboard/sideBar'
 
 class home extends Component {
   constructor(){
@@ -14,101 +15,6 @@ class home extends Component {
       open: false
     }
     
-    // this.state = {
-
-    //   data : {
-    //     columns:[
-    //       {
-    //         'label': 'Account Head',
-    //         'field': 'account',
-    //         'sort': 'asc'
-    //       },
-    //       {
-    //         'label': 'Due Amount',
-    //         'field': 'amount',
-    //         'sort': 'asc'
-    //       },
-    //       {
-    //         'label': 'Due Date',
-    //         'field': 'Duedate',
-    //         'sort': 'asc'
-    //       },
-    //       {
-    //         'label': 'Amount Paid',
-    //         'field': 'paidAmount',
-    //         'sort': 'asc'
-    //       },
-    //       {
-    //         'label': 'Paid On',
-    //         'field': 'PaidDate',
-    //         'sort': 'asc'
-    //       },
-    //       {
-    //         'label': 'Surcharge',
-    //         'field': 'surcharge',
-    //         'sort': 'asc'
-    //       },
-
-    //     ],
-    //     rows : [
-    //       {
-    //         // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-    //          'account': 'Installment 01',
-    //          'amount': '400,000',
-    //          'Duedate': ' 9 april 2020',
-    //          'paidAmount': '400,000',
-    //          'PaidDate': '9 april 2020',
-    //          'surcharge': '-'
-    //        },
-    //        {
-    //         // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-    //          'account': 'Installment 05',
-    //          'amount': '400,000',
-    //          'Duedate': ' 4 april 2020',
-    //          'paidAmount': '400,000',
-    //          'PaidDate': '9 april 2020',
-    //          'surcharge': '-'
-    //        },
-    //        {
-    //         // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-    //          'account': 'Installment 01',
-    //          'amount': '400,000',
-    //          'Duedate': ' 9 april 2020',
-    //          'paidAmount': '400,000',
-    //          'PaidDate': '9 april 2020',
-    //          'surcharge': '-'
-    //        },
-    //        {
-    //         // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-    //          'account': 'Installment 05',
-    //          'amount': '400,000',
-    //          'Duedate': ' 4 april 2020',
-    //          'paidAmount': '400,000',
-    //          'PaidDate': '9 april 2020',
-    //          'surcharge': '-'
-    //        },
-    //        {
-    //         // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-    //          'account': 'Installment 01',
-    //          'amount': '400,000',
-    //          'Duedate': ' 9 april 2020',
-    //          'paidAmount': '400,000',
-    //          'PaidDate': '9 april 2020',
-    //          'surcharge': '-'
-    //        },
-    //        {
-    //         // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-    //          'account': 'Installment 05',
-    //          'amount': '400,000',
-    //          'Duedate': ' 4 april 2020',
-    //          'paidAmount': '400,000',
-    //          'PaidDate': '9 april 2020',
-    //          'surcharge': '-'
-    //        },
-
-    //     ]
-    //   }
-    // }
   }
 
   handleChange = (Name) => (event) => {
@@ -157,7 +63,8 @@ class home extends Component {
   {
     const {name, mob_no, email, error, open} = this.state
     return(
-      
+      <div>
+      <Sidebar/>
       <MDBCard className = "styletables">
 
         {/* for query cust form in home */}
@@ -231,7 +138,7 @@ class home extends Component {
           data={this.state.data}/>
         </div> */}
       </MDBCard>
-
+      </div>
 
 
       
