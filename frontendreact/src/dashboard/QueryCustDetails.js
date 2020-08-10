@@ -100,7 +100,7 @@ class QueryCustDetails extends Component
 
           </MDBBtn>
           <MDBBtn outline rounded size="sm" color="white" className="px-2">
-            <a href="/home"className="fas fa-plus mt-0"> ADD</a>
+            <a href="/"className="fas fa-plus mt-0"> ADD</a>
           </MDBBtn>
           </div>
 

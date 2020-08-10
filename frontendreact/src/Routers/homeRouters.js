@@ -9,14 +9,16 @@ import installmentsTable from '../dashboard/installmentsTable'
 import installmentForm from '../forms/installmentForm'
 import home from '../dashboard/home'
 import Signin from '../Users/Signin'
+import AddUsers from '../dashboard/AddUsers'
 import PrivateRoutes from '../auth/PrivateRoute'
+
 
 const MainRouter = ()=>(
   
     <Switch>
-      <Route exact path="/" component = {Signin}/>
-      
-      <PrivateRoutes exact path="/home" component = {home}/>
+      <Route exact path="/signin" component = {Signin}/>
+
+      <PrivateRoutes exact path="/" component = {home}/>
       <PrivateRoutes exact path="/allfd" component={flatsDetails}/>
       <PrivateRoutes exact path="/postfd" component={Flats_form}/>
       <PrivateRoutes exact path="/getappli" component={Applicant}/>
@@ -24,6 +26,8 @@ const MainRouter = ()=>(
       <PrivateRoutes exact path="/getquerycust" component={QueryCustDetails}/>
       <PrivateRoutes exact path="/allinsta" component={installmentsTable}/>
       <PrivateRoutes exact path="/postinsta" component={installmentForm}/>
+      <PrivateRoutes exact path="/addusers" component={AddUsers}/>
+
     </Switch>
 
 )

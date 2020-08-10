@@ -48,7 +48,7 @@ class signin extends React.Component {
     const {error,redirectToRefer,email,password ,loading} = this.state
     if(redirectToRefer)
     {
-      return <Redirect  to="/home"/>
+      return <Redirect  to="/"/>
     }
     return (
       <MDBContainer>
@@ -89,7 +89,7 @@ class signin extends React.Component {
                 <br/>
                 <br/>
                 <div className="text-center pt-3 mb-3">
-                  <MDBBtn href="/home" type="button" gradient="blue" rounded className="btn-block z-depth-1a"
+                  <MDBBtn href="/" type="button" gradient="blue" rounded className="btn-block z-depth-1a"
                   onClick = {this.ClickSubmit}
                   >Sign in</MDBBtn>
                 </div>

@@ -24,7 +24,7 @@ class Sidebar extends Component {
             
         <MDBListGroup className="list-group-flush">
 
-            <NavLink exact={true} to="/home" activeClassName="activeClass">
+            <NavLink exact={true} to="/" activeClassName="activeClass">
                 <MDBListGroupItem>
                     <MDBIcon icon="chart-pie" className="mr-3"/>
                     Home
@@ -59,7 +59,14 @@ class Sidebar extends Component {
                 </MDBListGroupItem>
                 </NavLink>
 
-                <NavLink to="/" activeClassName="activeClass1">
+                <NavLink to="/addusers" activeClassName="activeClass">
+                <MDBListGroupItem>
+                    <MDBIcon icon="plus" className="mr-3"/>
+                    Add User
+                </MDBListGroupItem>
+                </NavLink>
+
+                <NavLink to="/signin" activeClassName="activeClass2">
                 <MDBListGroupItem onClick={Signout}>
                     <MDBIcon icon="undo" className="mr-3" />
                     
