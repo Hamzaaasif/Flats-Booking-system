@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn ,MDBCard, MDBCardHeader    } from 'mdbreact';
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn ,MDBCard, MDBCardHeader  } from 'mdbreact';
 
 class installmentForm extends Component
 {
@@ -11,13 +11,34 @@ class installmentForm extends Component
 
     this.state={
       inst_date: "",
-      inst_flatno:"",
+      inst_flatno:"", 
       inst_name:"",
       inst_CNIC:"",
       inst_amount:"",
       error:"",
+      inst_owner : "",
       open: false
     }
+  }
+
+
+  handleChangeCninc = (Name)=>(event)=>{
+    this.setState({error: ""})
+    this.setState({[Name]: event.target.value});
+    this.getBookings(this.state.inst_flatno)
+  }
+
+  getBookings =(flat_no)=>{
+
+    axios.get(`http://localhost:8080/getbookings/${flat_no}`)
+    .then(response => {
+        this.setState({inst_owner: response.data[0].owner_name});
+      
+    })
+    .catch(err => {
+      this.setState({error:err.response.data.error});
+      return err.response.data
+    })
   }
 
   handleChange = (Name) => (event) => {
@@ -28,7 +49,7 @@ class installmentForm extends Component
   clickSave = event => {
     event.preventDefault()
     const {inst_date, inst_flatno, inst_name, inst_CNIC,
-    inst_amount} = this.state
+    inst_amount,inst_owner} = this.state
     
     const insta = {
       inst_date,
@@ -36,6 +57,7 @@ class installmentForm extends Component
       inst_name,
       inst_CNIC,
       inst_amount,
+      inst_owner
     }
 
     this.savefd(insta).then(data => {
@@ -49,6 +71,7 @@ class installmentForm extends Component
           inst_name:"",
           inst_CNIC:"",
           inst_amount:"",
+          inst_owner:"",
           error: "",
           open: true
         })
@@ -69,7 +92,7 @@ class installmentForm extends Component
   render()
   {
     const {inst_date, inst_flatno, inst_name, inst_CNIC,
-      inst_amount, error, open} = this.state
+      inst_amount, error, open,inst_owner} = this.state
 
     return(
       <MDBCard className="" >
@@ -112,23 +135,23 @@ class installmentForm extends Component
                     value={inst_flatno}
                     />
 
-                  <MDBInput 
+
+                  <MDBInput
+                    label="Payee CNIC"
+                    group type="text"
+                    validate error="wrong"
+                    success="right"
+                    onChange={this.handleChangeCninc("inst_CNIC")}
+                    value={inst_CNIC}
+                    />
+
+                    <MDBInput 
                     label="Owner"
                     group type="text"
                     validate error="wrong"
                     success="right"
                     disabled
-                    // onChange
-                    // value
-                    />
-
-                  <MDBInput
-                    label="Payee CNIC (Optional)"
-                    group type="text"
-                    validate error="wrong"
-                    success="right"
-                    onChange={this.handleChange("inst_CNIC")}
-                    value={inst_CNIC}
+                    value={inst_owner}
                     />
 
                     <MDBInput
@@ -157,8 +180,8 @@ class installmentForm extends Component
                 <br/><br/>
                 <div className="text-center ml-5">
                   
-                  <MDBBtn href="/allinsta">Back</MDBBtn>
                   <MDBBtn href="/postinsta" onClick={this.clickSave} >Save</MDBBtn>
+                  <MDBBtn href="/allinsta">Back</MDBBtn>
                 </div>
               </form>
         

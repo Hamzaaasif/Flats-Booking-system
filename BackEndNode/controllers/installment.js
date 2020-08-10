@@ -28,7 +28,8 @@ exports.postInstallmentDetails = (req , res) => {
         inst_amount: req.body.inst_amount,
         inst_flatno: req.body.inst_flatno,
         inst_CNIC: req.body.inst_CNIC,
-        inst_date: new Date()
+        inst_owner: req.body.inst_owner,
+        inst_date: req.body.inst_date
     };
 
     let sql = "INSERT INTO installments SET ?";

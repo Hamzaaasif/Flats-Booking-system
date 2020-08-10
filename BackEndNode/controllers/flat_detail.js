@@ -21,6 +21,9 @@ exports.flatByNum = (req, res, next, id) => {
 }
 
 
+
+
+
 // Post Flat Details
 exports.postFlatDetails = (req , res) => {
     let data = {
@@ -148,15 +151,30 @@ exports.unbookedFlats = (req, res) => {
                 error: err
             })
         }
-             var nf = new Intl.NumberFormat();
-            var i;
-            for(i=0;i<result.length ; i++)
-            {
+            //  var nf = new Intl.NumberFormat();
+            // var i;
+            // for(i=0;i<result.length ; i++)
+            // {
 
-                result[i].price=nf.format(result[i].price)
-                result[i].covered_area =nf.format(result[i].covered_area)
-            }
+            //     result[i].price=nf.format(result[i].price)
+            //     result[i].covered_area =nf.format(result[i].covered_area)
+            // }
 
+        res.json(result)
+    })
+}
+
+
+//update the bookings of the flat
+exports.updateFlatDetails = (req, res) => {
+
+    let sql = `UPDATE flats_details SET isbooked = 1 WHERE flat_num = '${req.data.flat_num}'`
+    con.query(sql , (err , result)=>{
+        if(err){
+            return res.status(400).json({
+                error: err
+            })
+        }
         res.json(result)
     })
 }

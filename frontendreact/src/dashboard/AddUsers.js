@@ -3,8 +3,6 @@ import React , {Component} from 'react'
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn ,MDBCard, MDBCardHeader , MDBCardBody } from 'mdbreact';
 import SideBar from '../dashboard/sideBar'
 import {Adduser} from '../auth/auth'
-import axios from 'axios';
-import {Link} from 'react-router-dom'
 
 
 
@@ -61,9 +59,9 @@ class adduser extends Component {
         <br/><br/>
         
         <MDBRow>
-          <MDBCol md="9" lg="7" xl="7 " className="mx-auto mt-3">
+          <MDBCol md="9" lg="7" xl="6 " className="px-5 mx-auto mt-4">
             <MDBCard>
-              
+              <br/><br/>
 
               {/* validation input */}
              <div className="alert alert-info" style={{display: open ? "" : "none"}}>
@@ -79,29 +77,23 @@ class adduser extends Component {
                  <h5>ADD USER</h5>
                     </MDBCardHeader>
 
-                    <br/>
+                    <br/><br/>
 
                 <MDBInput label="User name" onChange={this.handleChange("name")} 
                 group type="text" validate error="wrong" success="right" value={name}/>
                 <MDBInput label="Email" onChange={this.handleChange("email")} group type="text" validate containerClass="mb-0" value={email}/>
                 <MDBInput label="Password" onChange={this.handleChange("password")} group type="password" validate containerClass="mb-0" value={password}/>
 
-                
-                {/* <p className="dark-grey-text text-left " style={smallStyle}>Role :</p> */}
 
+                <br/><br/>
 
                 <div className="text-center pt-3 mb-3">
                 <MDBBtn type="button" gradient="blue" onClick={this.onSave} rounded className="btn-block z-depth-1a">Save</MDBBtn>
+                <br/>
                 </div>
                 
 
               </MDBCardBody>
-
-              
-
-              {/* <MDBModalFooter className="mx-5 pt-3 mb-1">
-                <p className="grey-text d-flex justify-content-end" style={smallStyle}>Not a member ? <a href="#!" className="blue-text ml-1"> Contact to manager</a></p>
-              </MDBModalFooter> */}
 
             </MDBCard>
           </MDBCol>

@@ -1,4 +1,4 @@
-import { MDBListGroup, MDBListGroupItem, MDBIcon , MDBDropdown , MDBDropdownMenu , MDBDropdownToggle , MDBDropdownItem , MDBRow , MDBCol} from 'mdbreact';
+import { MDBListGroup, MDBListGroupItem, MDBIcon} from 'mdbreact';
 import React,{Component} from 'react';
 import { NavLink } from 'react-router-dom';
 //import logo from './mdb-react.png'
@@ -20,7 +20,8 @@ class Sidebar extends Component {
 
          <div className="sidebar-fixed position-fixed">
         
-        <h3 className = "HeadingStyle"  >MAYAR GROUP</h3>
+        <h3 className = "HeadingStyle  "  >MAYAR GROUP</h3>
+        <br/>
             
         <MDBListGroup className="list-group-flush">
 

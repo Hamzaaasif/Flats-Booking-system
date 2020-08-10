@@ -1,5 +1,5 @@
 import React , {Component} from 'react'
-import { MDBCard, MDBCardBody, MDBCardHeader, MDBBtn, MDBTable ,MDBDataTable,MDBInput } from 'mdbreact';
+import { MDBCard, MDBCardBody, MDBCardHeader, MDBBtn, MDBTable ,MDBDataTable } from 'mdbreact';
 import axios from 'axios';
 import Sidebar from '../dashboard/sideBar'
 
@@ -13,12 +13,7 @@ class QueryCustDetails extends Component
 
     this.state={
       columns: [
-        {
-          'label': 'Select',
-          'field': 'check',
-          'sort': 'asc'
-        },
-      
+
         {
           'label': 'Name',
           'field': 'name',
@@ -80,7 +75,7 @@ class QueryCustDetails extends Component
 
           <div>
             <MDBBtn onine rounded size="sm" color="white" className="px-2">
-              <a href="#win" className="fa fa-th-large mt-0"></a>
+              <i href="#win" className="fa fa-th-large mt-0"></i>
             </MDBBtn>
 
             <MDBBtn outline rounded size="sm" color="white" className="px-2">

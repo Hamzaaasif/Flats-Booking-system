@@ -66,7 +66,6 @@ class Flats_form extends Component {
           type: "",
           floor: "",
           covered_area: "",
-          price: null,
           isbooked: false,
           iscorner: false,
           iswestopen: false,
@@ -168,15 +167,7 @@ class Flats_form extends Component {
                     <form className="text-center" style={{color: "#757575"}} >
 
                     <div className="d-flex justify-content-around">
-                      
-                      <div>
-                        <div className="form-check styleFlatFormcheckboxes">
-                          <input type="checkbox" className="form-check-input" id="BookedFlat"
-                            onChange={this.handleCheckbox("isbooked")}
-                            />
-                          <label className="form-check-label" for="BookedFlat">Park Facing</label>
-                        </div>
-                      </div>
+                    
 
                       <div>
                         <input type="checkbox" className="form-check-input" id="CornerFlat"

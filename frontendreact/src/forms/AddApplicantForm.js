@@ -3,7 +3,6 @@ import axios from 'axios';
 import { MDBContainer, MDBRow, MDBCol, MDBInput ,MDBCard, MDBCardHeader , MDBBtn } from 'mdbreact'
 var AllFlats = [] ;
 
-
 class AddApplicant extends Component{
   
   constructor(){
@@ -13,7 +12,7 @@ class AddApplicant extends Component{
       appli_name: "",
       appli_father_name: "",
       appli_DOB: "",
-      appli_CNIC: 0,
+      appli_CNIC: "",
       appli_postal_add: "",
       appli_address: "",
       appli_nationality: "",
@@ -26,6 +25,9 @@ class AddApplicant extends Component{
       open: false,
       allFlatsData: [],
       SelectedFlat :"",
+      discount: "",
+      totalprice: "",
+      selectedflat: ""
 
     }
 
@@ -59,6 +61,16 @@ class AddApplicant extends Component{
   handleChange = (Name) => (event) => {
     this.setState({error: ""})
     this.setState({[Name]: event.target.value});
+    
+    // if([Name] == "discount"){
+    //   this.setState({totalprice: this.state.price-event.target.value})
+    //}
+  };
+
+  handleDiscount =(Name) => (event) => {
+    console.log(this.state.flatPrice)
+  
+    this.setState({ [Name]: event.target.value,totalprice:this.state.flatPrice-event.target.value });
   };
 
   clickSave = event => {
@@ -87,6 +99,8 @@ class AddApplicant extends Component{
         this.setState({error: data.error, open: false})
       }
       else{
+        this.bookedOn()
+        this.booking()
         this.setState({
           appli_name: "",
           appli_father_name: "",
@@ -101,10 +115,24 @@ class AddApplicant extends Component{
           kin_CNIC: "",
           kin_address: "",
           error: "",
-          open: true
+          open: true,
+          discount: "",
+          totalprice: "",
+          flatType: "",
+          flatPrice: "",
+          totalprice:"",
+          floor: "",
+          RoadFacing: "",
+          ParkFacing: "",
+          SqArea: "",
+          WestOpen: "",
+          Corner : "",
+          selectedflat: "",
+          SelectedFlat: ""
         })
       }
     })
+    
   }
 
   savefd = applicant => {
@@ -117,6 +145,34 @@ class AddApplicant extends Component{
     })
   };
 
+  //for booked flat flag on
+  bookedOn(){
+    return axios.put(`http://localhost:8080/updatefd/${this.state.selectedflat.flat_num}`)
+    .then(response => {
+      return response.data
+    })
+    .catch(err => {
+      return err.response.data
+    })
+  }
+
+  booking(){
+    const booking_detail = {
+      owner_name: this.state.appli_name,
+      owner_cnic: this.state.appli_CNIC,
+      flat_no: this.state.selectedflat.flat_num,
+      total_amount: this.state.totalprice
+    }
+
+    return axios.post(`http://localhost:8080/postbookings`,booking_detail)
+    .then(response => {
+      return response.data
+    })
+    .catch(err => {
+      return err.response.data
+    })
+  }
+
   //for dropdown selection flat
 
   SetFlatDisableAttributes = event =>{
@@ -124,17 +180,41 @@ class AddApplicant extends Component{
     var i
     for(i=0 ; i < AllFlats.length ; i++)
     {
-
-
     if(event.target.value === this.state.allFlatsData[i].flat_num ){
+
+      this.state.selectedflat = this.state.allFlatsData[i]
+
+        if(this.state.allFlatsData[i].isroadfacing === 0)
+        {
+          this.state.allFlatsData[i].isroadfacing = "No"
+        }else{
+          this.state.allFlatsData[i].isroadfacing = "Yes"
+        }
+        if(this.state.allFlatsData[i].iswestopen === 0)
+        {
+          this.state.allFlatsData[i].iswestopen = "No"
+        }else{
+          this.state.allFlatsData[i].iswestopen = "Yes"
+        }
+        if(this.state.allFlatsData[i].iscorner === 0)
+        {
+          this.state.allFlatsData[i].iscorner = "No"
+        }else{
+          this.state.allFlatsData[i].iscorner = "Yes"
+        }
+        if(this.state.allFlatsData[i].price === null)
+        {
+          this.state.allFlatsData[i].price = "Not Available"
+        }
 
       this.setState({
         SelectedFlat : event.target.value, //compare target value with data.flatno 
         flatType: this.state.allFlatsData[i].type,
         flatPrice: this.state.allFlatsData[i].price,
+        totalprice:this.state.allFlatsData[i].price,
         floor: this.state.allFlatsData[i].floor,
         RoadFacing: this.state.allFlatsData[i].isroadfacing,
-        ParkFacing: 0,
+        ParkFacing: null,
         SqArea: this.state.allFlatsData[i].covered_area,
         WestOpen: this.state.allFlatsData[i].iswestopen,
         Corner : this.state.allFlatsData[i].iscorner,
@@ -150,8 +230,7 @@ class AddApplicant extends Component{
 
     const {appli_name, appli_father_name, appli_DOB, appli_CNIC,
       appli_postal_add, appli_address, appli_nationality, appli_occupation,
-      kin_name, kin_relation, kin_CNIC, kin_address, error, open} = this.state
-
+      kin_name, kin_relation, kin_CNIC, kin_address, error, open, discount, totalprice} = this.state
     return (
       
       <MDBCard className="" >
@@ -319,19 +398,19 @@ class AddApplicant extends Component{
           <MDBInput hint={this.state.floor}  background label="Floor" type="text" disabled />
           <MDBInput hint={this.state.RoadFacing} background label="Road Facing" type="text" disabled />
           <MDBInput hint={this.state.ParkFacing} background label="Park Facing" type="text" disabled />
-          <MDBInput hint={this.state.flatPrice} background  label="Total Price" type="number" disabled />
+          <MDBInput hint={this.state.totalprice} background  label="Total Price" type="number" disabled />
 
          </div>
 
          <div className="SetPositionLeftForFlats">
 
-         <MDBInput label="Discount "  group type="number" />
+         <MDBInput label="Discount"  group type="number"
+          onChange={this.handleDiscount("discount")}
+          value={discount} />
           <MDBInput hint={this.state.WestOpen}  background label="West Open" type="text" disabled />
           <MDBInput hint={this.state.SqArea}  background label="Sq. Area" type="text" disabled />
           <MDBInput hint={this.state.Corner}   background label="Corner" type="text" disabled />
 
-      
-            
          </div>
 
           
@@ -345,7 +424,7 @@ class AddApplicant extends Component{
         <div className="text-center buttonAllign SaveBtn">
           
           <MDBBtn href="/getappli"  >Back</MDBBtn>
-           <MDBBtn href="/allfd" onClick={this.clickSave} >Save</MDBBtn>
+           <MDBBtn onClick={this.clickSave} href="/getappli">Save</MDBBtn>
            
         </div>
 

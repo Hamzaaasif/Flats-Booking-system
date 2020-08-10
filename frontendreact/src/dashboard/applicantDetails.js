@@ -75,7 +75,7 @@ class Applicant extends Component
 
           <div>
             <MDBBtn onine rounded size="sm" color="white" className="px-2">
-              <a href="#win" className="fa fa-th-large mt-0"></a>
+              <i href="#win" className="fa fa-th-large mt-0"></i>
             </MDBBtn>
 
             <MDBBtn outline rounded size="sm" color="white" className="px-2">

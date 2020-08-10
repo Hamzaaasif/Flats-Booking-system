@@ -8,14 +8,15 @@ const {
     allFlats,
     flatByNum,
     bookedFlats,
-    unbookedFlats
+    unbookedFlats,
+    updateFlatDetails
 } = require("../controllers/flat_detail")
 
 const { 
     flatDetailValidator
 } = require('../validator/index')
 
-
+router.put('/updatefd/:FlatNum', updateFlatDetails);
 router.post('/postfd', flatDetailValidator, postFlatDetails);
 router.get('/getfd/:FlatNum', getFlatDetails);
 router.delete('/deletefd/:FlatNum', deleteFlatDetails);

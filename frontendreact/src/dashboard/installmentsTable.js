@@ -1,6 +1,7 @@
 import React , {Component } from 'react'
-import { MDBDataTable, MDBInput ,MDBCard ,MDBCardHeader, MDBBtn } from 'mdbreact'
+import { MDBDataTable ,MDBCard ,MDBCardHeader, MDBBtn } from 'mdbreact'
 import Sidebar from '../dashboard/sideBar'
+import axios from 'axios'
 
 class installmentsTable extends Component 
 {
@@ -10,101 +11,43 @@ class installmentsTable extends Component
 
     this.state ={
 
-
-      data : {
         columns:[
           {
-            'label': 'Account Head',
-            'field': 'account',
+            'label': 'Posted on',
+            'field': 'inst_date',
             'sort': 'asc'
           },
           {
-            'label': 'Due Amount',
-            'field': 'amount',
+            'label': 'Flat#',
+            'field': 'inst_flatno',
             'sort': 'asc'
           },
           {
-            'label': 'Due Date',
-            'field': 'Duedate',
+            'label': 'Owner',
+            'field': 'inst_owner',
             'sort': 'asc'
           },
           {
             'label': 'Amount Paid',
-            'field': 'paidAmount',
-            'sort': 'asc'
-          },
-          {
-            'label': 'Paid On',
-            'field': 'PaidDate',
-            'sort': 'asc'
-          },
-          {
-            'label': 'Surcharge',
-            'field': 'surcharge',
+            'field': 'inst_amount',
             'sort': 'asc'
           },
 
         ],
         rows : [
           {
-            // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-             'account': 'Installment 01',
-             'amount': '400,000',
-             'Duedate': ' 9 april 2020',
-             'paidAmount': '400,000',
-             'PaidDate': '9 april 2020',
-             'surcharge': '-'
-           },
-           {
-            // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-             'account': 'Installment 05',
-             'amount': '400,000',
-             'Duedate': ' 4 april 2020',
-             'paidAmount': '400,000',
-             'PaidDate': '9 april 2020',
-             'surcharge': '-'
-           },
-           {
-            // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-             'account': 'Installment 01',
-             'amount': '400,000',
-             'Duedate': ' 9 april 2020',
-             'paidAmount': '400,000',
-             'PaidDate': '9 april 2020',
-             'surcharge': '-'
-           },
-           {
-            // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-             'account': 'Installment 05',
-             'amount': '400,000',
-             'Duedate': ' 4 april 2020',
-             'paidAmount': '400,000',
-             'PaidDate': '9 april 2020',
-             'surcharge': '-'
-           },
-           {
-            // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-             'account': 'Installment 01',
-             'amount': '400,000',
-             'Duedate': ' 9 april 2020',
-             'paidAmount': '400,000',
-             'PaidDate': '9 april 2020',
-             'surcharge': '-'
-           },
-           {
-            // 'check': <MDBInput label="" type="checkbox" id="checkbox6" />,
-             'account': 'Installment 05',
-             'amount': '400,000',
-             'Duedate': ' 4 april 2020',
-             'paidAmount': '400,000',
-             'PaidDate': '9 april 2020',
-             'surcharge': '-'
-           },
 
+          }
         ]
       }
-      }
-
+    }
+    
+    componentDidMount(){
+      axios.get(`http://localhost:8080/allinsta`)
+        .then(response => {
+          this.setState({rows: response.data});
+          console.log(response.data)
+        })
     }
 
     render()
@@ -121,7 +64,7 @@ class installmentsTable extends Component
 
         <div>
           <MDBBtn onine rounded size="sm" color="white" className="px-2">
-            <a href="#win" className="fa fa-th-large mt-0"></a>
+            <i href="#win" className="fa fa-th-large mt-0"></i>
           </MDBBtn>
 
           <MDBBtn outline rounded size="sm" color="white" className="px-2">
@@ -153,7 +96,7 @@ class installmentsTable extends Component
           small 
           striped 
           order = {['Duedate' , 'asc']}
-          data={this.state.data}/>
+          data={this.state}/>
 
 
         
